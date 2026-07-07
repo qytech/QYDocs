@@ -8,10 +8,10 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 文档 |
 |------|------|------|
-| **AudioPlayer** | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | [更新日志](AudioPlayer更新日志.md) |
-| **DLNA/QPlay** | DLNA 媒体渲染器，支持 QPlay 协议 | [更新日志](DLNA更新日志.md) |
-| **AirPlay** | AirPlay 接收端实现 | [更新日志](Airplay更新日志.md) |
-| **Spectrum** | 音频频谱 & VU 表处理组件 | [更新日志](QY%20Spectrum%20Changelog.md) |
+| **AudioPlayer** | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | [更新日志](docs/AudioPlayer/) |
+| **DLNA/QPlay** | DLNA 媒体渲染器，支持 QPlay 协议 | [更新日志](docs/DLNA/) |
+| **AirPlay** | AirPlay 接收端实现 | [更新日志](docs/Airplay/) |
+| **Spectrum** | 音频频谱 & VU 表处理组件 | [更新日志](docs/Spectrum/) |
 
 ---
 
