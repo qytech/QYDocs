@@ -6,29 +6,81 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 ## 文档导航
 
-| 模块 | 说明 | 文档 |
+| 模块 | 说明 | 最后更新 |
 |------|------|------|
-| **AudioPlayer** | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | [更新日志](docs/AudioPlayer/) |
-| **DLNA/QPlay** | DLNA 媒体渲染器，支持 QPlay 协议 | [更新日志](docs/DLNA/) |
-| **AirPlay** | AirPlay 接收端实现 | [更新日志](docs/Airplay/) |
-| **Spectrum** | 音频频谱 & VU 表处理组件 | [更新日志](docs/Spectrum/) |
-| **Cdrom** | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | [更新日志](docs/Cdrom/) |
-| **NetworkStorage** | 网络存储（SMB/NFS/WebDAV）管理 | [更新日志](docs/NetworkStorage/) |
-| **Qobuz** | Qobuz Connect Android SDK | [使用文档](docs/Qobuz/) / [Changelog](docs/Qobuz/CHANGELOG.md) |
-| **Roon** | Roon Raat 协议支持 | [变更日志](docs/Roon/) |
+| **Roon** | Roon Raat 协议支持，DSD512 播放、封面同步 | 2026-07-07 |
+| **Qobuz** | Qobuz Connect Android SDK，设备发现与播放控制 | 2026-07-07 |
+| **NetworkStorage** | 网络存储（SMB/NFS/WebDAV）管理 | 2026-07-07 |
+| **Cdrom** | USB 光驱控制库，CD 播放、抓轨、硬件控制 | 2026-07-07 |
+| **Spectrum** | 音频频谱 & VU 表处理组件，FFT 分析 | 2026-07-07 |
+| **AirPlay** | AirPlay 接收端实现，多设备连接管理 | 2026-07-07 |
+| **DLNA/QPlay** | DLNA 媒体渲染器，QPlay 协议，歌词回调 | 2026-07-07 |
+| **AudioPlayer** | Android 高保真音频播放框架，DSD、MQA、SACD | 2026-07-07 |
+
+---
+
+## 快速链接
+
+- [Roon](docs/Roon/)
+- [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md)
+- [NetworkStorage](docs/NetworkStorage/)
+- [Cdrom](docs/Cdrom/)
+- [Spectrum](docs/Spectrum/)
+- [AirPlay](docs/Airplay/)
+- [DLNA/QPlay](docs/DLNA/)
+- [AudioPlayer](docs/AudioPlayer/)
 
 ---
 
 ## 技术栈
 
-- Android Framework
-- Kotlin / Java
+- Android Framework（minSdk 29）
+- Kotlin / Java（JDK 11+）
 - 音视频开发
-- DLNA / AirPlay / QPlay / Roon 协议
+- DLNA / AirPlay / QPlay / Roon / Qobuz 协议
+- Google Oboe（Native 音频输出）
+
+---
+
+## 模块概览
+
+### Roon（v0.1.0）
+
+Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支持封面同步。
+
+### Qobuz（v0.0.2）
+
+Qobuz Connect Android SDK，基于 Oboe 的音频输出、设备发现与播放控制。
+
+### NetworkStorage
+
+网络存储管理，支持 SMB/NFS/WebDAV 等协议。
+
+### Cdrom（v0.2.5）
+
+USB 光驱控制库，支持 CD 播放（Native Oboe）、CDDB/FreeDB 元数据、抓轨、硬件控制（进出仓）。
+
+### Spectrum（v0.1.8）
+
+音频频谱分析与 VU 表，支持单声道/双声道分离处理、音量增益补偿、硬件回采/软件回采双策略。
+
+### AirPlay（v0.0.7）
+
+AirPlay 接收端实现，支持多设备连接管理与网络状态自动处理。
+
+### DLNA/QPlay（v0.2.6）
+
+DLNA DMR 媒体渲染器，QPlay 协议支持（队列管理、歌词回调、SQ 音质），手机-设备同步控制。
+
+### AudioPlayer（v1.1.1）
+
+Android 高保真音频播放框架，支持 DSD512、MQA 完整识别、SACD 整轨/分轨、CUE 分轨、无缝播放、网盘/WebDAV 播放。
+
+---
 
 ## 项目说明
 
-公司框架项目，其他客户项目基于此公共底座进行定制开发。核心能力包括：
+公司框架项目，其他客户项目基于此公共底座进行定制开发。核心能力：
 
 - 高保真音频播放（DSD、MQA、SACD、PCM、FLAC、WAV 等格式）
 - 网络播放（网盘、WebDAV、局域网 DLNA/AirPlay）
@@ -37,53 +89,4 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 ---
 
-## 版本概览
-
-### AudioPlayer（最新 v1.1.1）
-
-- 支持 DSD512、MQA 完整识别、SACD 整轨/分轨播放
-- 无缝播放、CUE 分轨、网盘/WebDAV 播放
-- USB / DOP / D2P 硬件输出
-
-### DLNA（最新 v0.2.6）
-
-- DLNA DMR 媒体渲染器
-- QPlay 协议支持（队列管理、歌词回调、SQ 音质）
-- 手机-设备同步控制
-
-### AirPlay（最新 v0.0.7）
-
-- AirPlay 接收端
-- 多设备连接管理
-- 网络状态自动处理
-
-### Spectrum（最新 v0.1.8）
-
-- FFT 频谱分析与 VU 表
-- 单声道 / 双声道分离处理
-- 音量增益补偿
-
-### Cdrom（最新 v0.2.5）
-
-- USB 光驱控制，支持 CD 播放（Oboe Native）
-- CDDB/FreeDB 元数据、抓轨、硬件控制
-- Mixed Mode CD 处理、DTS CD 支持
-
-### NetworkStorage（最新）
-
-- 网络存储管理（SMB/NFS/WebDAV）
-
-### Qobuz（最新 v0.0.2）
-
-- Qobuz Connect 协议支持
-- 基于 Oboe 的音频输出
-- 设备发现与控制
-
-### Roon（最新 v0.1.0）
-
-- Roon Raat 协议支持（1.1.47）
-- DSD512 播放、封面同步
-
----
-
-> 最后更新：2026-07-07
+> 仓库最后更新：2026-07-07
