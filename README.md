@@ -6,16 +6,16 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 ## 文档导航
 
-| 模块 | 说明 | 文档 |
-|------|------|------|
-| **AudioPlayer** | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | [查看](docs/AudioPlayer/) |
-| **DLNA/QPlay** | DLNA 媒体渲染器，支持 QPlay 协议 | [查看](docs/DLNA/) |
-| **AirPlay** | AirPlay 接收端实现 | [查看](docs/Airplay/) |
-| **Spectrum** | 音频频谱 & VU 表处理组件 | [查看](docs/Spectrum/) |
-| **Cdrom** | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | [查看](docs/Cdrom/) |
-| **NetworkStorage** | 网络存储（SMB/NFS/WebDAV）管理 | [查看](docs/NetworkStorage/) |
-| **Qobuz** | Qobuz Connect Android SDK | [查看](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) |
-| **Roon** | Roon Raat 协议支持 | [查看](docs/Roon/) |
+| 模块 | 说明 | 最后更新 | 文档 |
+|------|------|------|------|
+| [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | 2026-07-07 | [查看](docs/AudioPlayer/) |
+| [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-07-07 | [查看](docs/DLNA/) |
+| [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 | [查看](docs/Airplay/) |
+| [Spectrum](docs/Spectrum/) | 音频频谱 & VU 表处理组件 | 2026-07-07 | [查看](docs/Spectrum/) |
+| [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-07-07 | [查看](docs/Cdrom/) |
+| [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理 | 2026-07-07 | [查看](docs/NetworkStorage/) |
+| [Qobuz](docs/Qobuz/) | Qobuz Connect Android SDK | 2026-07-07 | [查看](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) |
+| [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 | [查看](docs/Roon/) |
 
 ---
 
