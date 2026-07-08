@@ -8,14 +8,14 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 | 文档 |
 |------|------|------|------|
-| [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | 2026-07-07 | [查看](docs/AudioPlayer/) |
-| [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-07-07 | [查看](docs/DLNA/) |
-| [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 | [查看](docs/Airplay/) |
-| [Spectrum](docs/Spectrum/) | 音频频谱 & VU 表处理组件 | 2026-07-07 | [查看](docs/Spectrum/) |
-| [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-07-07 | [查看](docs/Cdrom/) |
-| [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理 | 2026-07-07 | [查看](docs/NetworkStorage/) |
-| [Qobuz](docs/Qobuz/) | Qobuz Connect Android SDK | 2026-07-07 | [查看](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) |
-| [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 | [查看](docs/Roon/) |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | 2026-07-07 | [查看](docs/AudioPlayer/) |
+| <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-07-07 | [查看](docs/DLNA/) |
+| <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 | [查看](docs/Airplay/) |
+| <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱 & VU 表处理组件 | 2026-07-07 | [查看](docs/Spectrum/) |
+| <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-07-07 | [查看](docs/Cdrom/) |
+| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理 | 2026-07-07 | [查看](docs/NetworkStorage/) |
+| <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) | Qobuz Connect Android SDK | 2026-07-07 | [查看](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) |
+| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 | [查看](docs/Roon/) |
 
 ---
 
