@@ -5,7 +5,7 @@
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:spectrum:0.1.8")
+implementation("io.github.qytech:spectrum:0.1.9")
 ```
 
 ## 功能特性
@@ -20,6 +20,12 @@ implementation("io.github.qytech:spectrum:0.1.8")
 ---
 
 ## 更新日志
+
+### v0.1.9（2026-07-09）
+
+- 优化硬件回采的情况下杂波问题和 VU 表显示
+
+---
 
 ### v0.1.8（2026-07-07）
 
