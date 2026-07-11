@@ -6,7 +6,7 @@ Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:dlna:0.2.6")
+    implementation("io.github.qytech:dlna:0.2.7")
 }
 ```
 
@@ -22,6 +22,14 @@ dependencies {
 ---
 
 ## 更新日志
+
+### [0.2.7] — 2026-07-11
+
+**优化**
+
+- 优化播放状态切换时不同步和下一首慢问题
+
+---
 
 ### [0.2.6] — 2026-06-26
 
