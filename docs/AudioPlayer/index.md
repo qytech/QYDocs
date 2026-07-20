@@ -29,6 +29,7 @@ implementation("io.github.qytech:audioplayer:1.1.2")
 - 完善 DSD 播放配置，支持 Native DSD、DoP 和 D2P 输出模式。
 - 优化网络音源的缓存、拖动和请求取消行为，提升 WebDAV、HTTP 等远程音源的播放体验。
 - 优化音频输出与资源释放流程，提高暂停、恢复、切歌及存储设备或 DAC 状态变化时的稳定性。
+- 修复部分 FLAC 文件不兼容问题。
 
 > **特别说明**
 >
