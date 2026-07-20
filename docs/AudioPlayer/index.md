@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.1")
+implementation("io.github.qytech:audioplayer:1.1.2")
 ```
 
 ## 功能特性
@@ -21,6 +21,19 @@ implementation("io.github.qytech:audioplayer:1.1.1")
 ---
 
 ## 更新日志
+
+### v1.1.2
+
+- 新增下一音源预加载与连续切换能力，减少连续播放时的等待时间。
+- 新增最大输出采样率设置。播放高于设定值的 PCM 或 D2P 音频时，可自动向下重采样至指定采样率。
+- 完善 DSD 播放配置，支持 Native DSD、DoP 和 D2P 输出模式。
+- 优化网络音源的缓存、拖动和请求取消行为，提升 WebDAV、HTTP 等远程音源的播放体验。
+- 优化音频输出与资源释放流程，提高暂停、恢复、切歌及存储设备或 DAC 状态变化时的稳定性。
+
+> **特别说明**
+>
+> - `maxSampleRate` 默认值为 `0`，升级后不会改变原有输出采样率策略。
+> - 最大采样率是用户指定的输出策略，不代表播放器能够自动识别 DAC 的全部能力。如果 DAC 不支持指定采样率，播放器会进入错误状态并通过 `PlayerListener.onError(...)` 通知业务层，不会导致应用崩溃。
 
 ### v1.1.1
 
