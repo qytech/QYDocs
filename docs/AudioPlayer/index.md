@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.2")
+implementation("io.github.qytech:audioplayer:1.1.3")
 ```
 
 ## 功能特性
@@ -21,6 +21,10 @@ implementation("io.github.qytech:audioplayer:1.1.2")
 ---
 
 ## 更新日志
+
+### v1.1.3
+
+- 新增 `mqaUnfoldEnabled` 参数（Boolean，默认 `true`），用于控制 MQA 解码时是否自动展开至最高采样率。设置为 `false` 时可锁定输出采样率，避免部分 DAC 对展开后高采样率不支持的问题。
 
 ### v1.1.2
 
