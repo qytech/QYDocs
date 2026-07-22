@@ -10,13 +10,16 @@ implementation("io.github.qytech:audioplayer:1.1.3")
 
 ## 功能特性
 
-- ✅ DSD（DFF / DSF）原生播放
-- ✅ MQA 完整识别与展开
+- ✅ DSD（DFF / DSF）原生播放，支持 Native DSD、DoP 和 D2P 输出模式
+- ✅ MQA 完整识别与展开，支持手动控制展开开关
 - ✅ SACD ISO 整轨 / 分轨播放
 - ✅ CUE 分轨解析与无缝切歌
-- ✅ 网盘 / WebDAV 网络播放
+- ✅ 网盘 / WebDAV 网络播放，支持缓存、拖动与请求取消
 - ✅ USB / DOP / D2P 硬件输出
 - ✅ 多格式支持：FLAC、WAV、APE、MP3、AAC、DTS、MQA、DSD、PCM
+- ✅ 下一音源预加载与连续切换
+- ✅ 最大输出采样率设置与自动重采样
+- ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
 
 ---
 
