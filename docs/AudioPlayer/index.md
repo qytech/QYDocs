@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.3")
+implementation("io.github.qytech:audioplayer:1.1.4")
 ```
 
 ## 功能特性
@@ -24,6 +24,10 @@ implementation("io.github.qytech:audioplayer:1.1.3")
 ---
 
 ## 更新日志
+
+### v1.1.4
+
+- 新增 `dtsPassthroughEnabled` 参数（Boolean，默认 `false`），用于控制 DTS 音频是否通过 HDMI 透传。当 HDMI 支持 DTS 透传时，设置为 `true` 即可启用透传输出。
 
 ### v1.1.3
 
