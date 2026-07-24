@@ -5,7 +5,7 @@
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:spectrum:0.1.9")
+implementation("io.github.qytech:spectrum:0.2.0")
 ```
 
 ## 功能特性
@@ -20,6 +20,12 @@ implementation("io.github.qytech:spectrum:0.1.9")
 ---
 
 ## 更新日志
+
+### v0.2.0（2026-07-24）
+
+- 修复硬件回采数据不对的问题
+
+---
 
 ### v0.1.9（2026-07-09）
 
