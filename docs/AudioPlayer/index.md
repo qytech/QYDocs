@@ -25,6 +25,12 @@ implementation("io.github.qytech:audioplayer:1.1.4")
 
 ## 更新日志
 
+### v1.1.5（2026-07-28）
+
+- 修复 AudioTrack 输出定位后缓冲区状态异常导致的播放失败问题，提升 Seek 及输出切换后的播放稳定性。
+
+---
+
 ### v1.1.4
 
 - 新增 `dtsPassthroughEnabled` 参数（Boolean，默认 `false`），用于控制 DTS 音频是否通过 HDMI 透传。当 HDMI 支持 DTS 透传时，设置为 `true` 即可启用透传输出。
