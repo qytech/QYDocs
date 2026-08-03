@@ -2,11 +2,13 @@
 
 # 最新版本
 
-`implementation("io.github.qytech:networkstorage:0.1.4")`
+`implementation("io.github.qytech:networkstorage:0.1.6")`
 
+## v0.1.6（2026-08-03）
 
+- 修复 NFS 挂载目录加载不全问题
 
-## v0\.1\.5 \(20260605\)
+## v0.1.5（2026-06-05）
 
 1. 修复NetBIOS广播扫描不到Nsd设备问题
 
