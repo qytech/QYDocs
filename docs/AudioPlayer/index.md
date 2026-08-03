@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.4")
+implementation("io.github.qytech:audioplayer:1.1.6")
 ```
 
 ## 功能特性
@@ -24,6 +24,12 @@ implementation("io.github.qytech:audioplayer:1.1.4")
 ---
 
 ## 更新日志
+
+### v1.1.6（2026-08-03）
+
+- 修复 APE CUE 分轨残音及 Seek 延迟问题，修复 CUE 分轨可能闪退问题
+
+---
 
 ### v1.1.5（2026-07-28）
 
