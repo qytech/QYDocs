@@ -1,11 +1,11 @@
 # Spectrum 模块
 
-音频频谱分析与 VU 表处理组件，支持单声道/双声道分离处理、音量增益补偿等功能。
+音频频谱分析与 VU 表处理组件，统一管理软件回采、硬件回采、频谱分析和左右声道 VU 响度。
 
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:spectrum:0.2.1")
+implementation("io.github.qytech:spectrum:0.2.2")
 ```
 
 ## 功能特性
@@ -13,13 +13,60 @@ implementation("io.github.qytech:spectrum:0.2.1")
 - ✅ FFT 频谱分析（支持配置 FFT 大小）
 - ✅ 单声道 `SpectrumVuProcessor`
 - ✅ 双声道分离 `StereoSpectrumVuProcessor`
-- ✅ 音量增益补偿
-- ✅ 硬件回采 / 软件回采双策略
+- ✅ `SpectrumCaptureRuntime` 统一管理回采生命周期
+- ✅ `AUTO`、`SOFTWARE`、`HARDWARE`、`OFF` 四种回采模式
+- ✅ 不同硬件回采设备的固定参数适配
+- ✅ VU 使用左右声道 RMS 响度，不受硬件音量调节影响
 - ✅ 多频段频谱显示
 
 ---
 
+## 使用方法
+
+```kotlin
+private val spectrumRuntime = SpectrumCaptureRuntime()
+
+fun initializeSpectrum() {
+    spectrumRuntime.setListener(object : SpectrumVuUpdateListener {
+        override fun onSpectrumDataUpdated(dbList: DoubleArray) {
+            // 更新频谱 UI
+        }
+
+        override fun onVuDataUpdated(vuData: VuData) {
+            // 更新左右声道 VU UI
+        }
+    })
+
+    spectrumRuntime.setPolicy(SpectrumCapturePolicy.AUTO)
+}
+
+fun setSpectrumActive(active: Boolean) {
+    spectrumRuntime.setSignalActive(active)
+}
+
+fun setSpectrumMode(policy: SpectrumCapturePolicy) {
+    spectrumRuntime.setPolicy(policy)
+}
+
+fun releaseSpectrum() {
+    spectrumRuntime.close()
+}
+```
+
+`AUTO` 默认使用硬件回采。用户明确选择 `SOFTWARE`、`HARDWARE` 或 `OFF` 后，运行时以用户设置为准。
+
+---
+
 ## 更新日志
+
+### v0.2.2（2026-08-05）
+
+- 新增 `SpectrumCaptureRuntime`，统一管理回采模式、启停、监听和资源释放
+- `AUTO` 默认使用硬件回采；用户选择 `SOFTWARE`、`HARDWARE` 或 `OFF` 时以用户设置为准
+- 优化不同硬件回采设备的固定参数适配，移除按当前音频动态放大增益导致的频谱和 VU 跳动
+- VU 统一使用左右声道 RMS 响度，硬件回采结果不受用户音量调节影响
+
+---
 
 ### v0.2.1（2026-07-28）
 
