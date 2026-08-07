@@ -8,12 +8,12 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、SACD、CUE、网盘等 | 2026-08-03 |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、内嵌歌词与可中断资源释放 | 2026-08-07 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-07-11 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱 & VU 表处理组件 | 2026-08-05 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-07-07 |
-| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理 | 2026-08-03 |
+| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持卸载前资源清理协调 | 2026-08-07 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 |
 
@@ -37,7 +37,9 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 - ✅ MQA 完整识别与展开
 - ✅ SACD ISO 整轨 / 分轨播放
 - ✅ CUE 分轨解析与无缝切歌
+- ✅ 常见音频容器内嵌歌词解析
 - ✅ 网盘 / WebDAV 网络播放
+- ✅ 阻塞读写、预加载与 Seek 的快速中断请求
 - ✅ USB / DOP / D2P 硬件输出
 
 ---
@@ -101,7 +103,7 @@ Android 平台外部 USB 光驱控制库。支持 CD 播放（基于 Native Oboe
 
 ### NetworkStorage
 
-网络存储管理，支持 SMB/NFS/WebDAV 等协议。
+网络存储管理，支持 SMB/NFS/WebDAV 等协议，并可在 SMB/NFS 卸载前协调播放器关闭相关文件句柄。
 
 ---
 
@@ -149,4 +151,4 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 
 ---
 
-> 仓库最后更新：2026-08-05
+> 仓库最后更新：2026-08-07

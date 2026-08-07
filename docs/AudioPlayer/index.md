@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.6")
+implementation("io.github.qytech:audioplayer:1.1.7")
 ```
 
 ## 功能特性
@@ -15,15 +15,44 @@ implementation("io.github.qytech:audioplayer:1.1.6")
 - ✅ SACD ISO 整轨 / 分轨播放
 - ✅ CUE 分轨解析与无缝切歌
 - ✅ 网盘 / WebDAV 网络播放，支持缓存、拖动与请求取消
+- ✅ 解析常见音频容器中的同步或非同步内嵌歌词
 - ✅ USB / DOP / D2P 硬件输出
 - ✅ 多格式支持：FLAC、WAV、APE、MP3、AAC、DTS、MQA、DSD、PCM
 - ✅ 下一音源预加载与连续切换
 - ✅ 最大输出采样率设置与自动重采样
 - ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
 
+## 读取内嵌歌词
+
+`AudioProbe` 会把容器元数据中的 `syncedlyrics`、`lyrics` 或 `unsyncedlyrics` 映射到 `AudioMetadata.lyrics`。没有内嵌歌词时该字段为 `null`。
+
+```kotlin
+val metadata = AudioProbe.probeFile("/storage/usb/Music/song.flac")
+val embeddedLyrics: String? = metadata?.lyrics
+```
+
+歌词可能是带时间轴的 LRC 文本，也可能是纯文本；SDK 不负责把纯文本转换为时间轴。
+
+## 中断阻塞操作并释放资源
+
+存储设备拔出、网络卷卸载或连接中断时，先调用 `requestAbort()` 请求底层尽快退出正在进行的打开、读取、预加载或 Seek，再调用 `forceRelease()` 完成资源回收：
+
+```kotlin
+audioPlayer.requestAbort()
+audioPlayer.forceRelease()
+```
+
+`requestAbort()` 是非阻塞请求，不能替代 `forceRelease()`。业务侧仍需在 Service 或其他明确的生命周期 owner 中持有播放器，并保证后续释放路径只执行一次。
+
 ---
 
 ## 更新日志
+
+### v1.1.7（2026-08-07）
+
+- 新增 `AudioPlayer.requestAbort()`，用于请求 Native 或流媒体播放器尽快中断阻塞中的打开、读取、预加载与 Seek。
+- 支持从常见音频容器元数据中读取同步或非同步内嵌歌词，并通过 `AudioMetadata.lyrics` 返回。
+- 优化 Native 播放器中断与音频输出停止流程，便于存储移除或网络中断后继续执行资源回收。
 
 ### v1.1.6（2026-08-03）
 
