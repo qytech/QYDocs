@@ -1,0 +1,4 @@
+interface:
+  display_name: "QYDocs 文档维护"
+  short_description: "维护 QYTech Android SDK 文档、版本日志与首页导航"
+  default_prompt: "使用 $qydocs-maintainer 更新一个 SDK 模块文档，并同步首页版本信息。"
