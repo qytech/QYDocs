@@ -6,7 +6,7 @@ Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:dlna:0.2.8")
+    implementation("io.github.qytech:dlna:0.2.9")
 }
 ```
 
@@ -23,16 +23,18 @@ dependencies {
 
 ## 更新日志
 
+### v0.2.9（2026-08-12）
+
+- 修复部分场景下 DLNA 服务启停异常问题。
+- 提升 DLNA 服务运行稳定性。
+
+---
+
 ### v0.2.8（2026-08-11）
-
-**修复**
-
-- 修复 DLNA 服务在启动阶段立即停止时，异步启动任务仍可能继续注册设备的问题
-- 修复 UPnP Router 尚未创建时停止服务可能触发的销毁异常
 
 **优化**
 
-- 优化运行状态判断与启停清理顺序，避免快速重启时沿用已停止的服务状态
+- 优化播放状态切换时的信息同步与下一曲切换速度
 
 ---
 
