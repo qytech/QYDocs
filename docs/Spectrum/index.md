@@ -1,12 +1,14 @@
 # Spectrum 模块
 
-音频频谱分析与 VU 表处理组件，统一管理软件回采、硬件回采、频谱分析和左右声道 VU 响度。
+音频频谱分析与 VU 表处理组件，统一管理软件回采、硬件回采、频谱分析和左右声道 VU 显示。
 
 ## 依赖
 
 ```kotlin
 implementation("io.github.qytech:spectrum:0.2.2")
 ```
+
+> `VuMeterMode` 将随 Spectrum 后续版本发布。正式版本号确认前，Maven Central 依赖仍保持为 `0.2.2`。
 
 ## 功能特性
 
@@ -16,7 +18,8 @@ implementation("io.github.qytech:spectrum:0.2.2")
 - ✅ `SpectrumCaptureRuntime` 统一管理回采生命周期
 - ✅ `AUTO`、`SOFTWARE`、`HARDWARE`、`OFF` 四种回采模式
 - ✅ 不同硬件回采设备的固定参数适配
-- ✅ VU 使用左右声道 RMS 响度，不受硬件音量调节影响
+- ✅ VU 支持 `LOUDNESS` 真实响度与 `PEAK` 峰值两种显示方式
+- ✅ 左右声道独立显示，不受硬件音量调节影响
 - ✅ 多频段频谱显示
 
 ---
@@ -48,6 +51,10 @@ fun setSpectrumMode(policy: SpectrumCapturePolicy) {
     spectrumRuntime.setPolicy(policy)
 }
 
+fun setVuMode(mode: VuMeterMode) {
+    spectrumRuntime.setVuMeterMode(mode)
+}
+
 fun releaseSpectrum() {
     spectrumRuntime.close()
 }
@@ -55,9 +62,46 @@ fun releaseSpectrum() {
 
 `AUTO` 默认使用硬件回采。用户明确选择 `SOFTWARE`、`HARDWARE` 或 `OFF` 后，运行时以用户设置为准。
 
+### 选择 VU 表显示方式
+
+VU 表新增两种显示方式，可根据产品的视觉风格和使用场景选择：
+
+- `LOUDNESS`：显示音频的短时真实响度，变化更平稳，适合观察音乐整体强弱。
+- `PEAK`：显示左右声道峰值，对鼓点、瞬态和强音响应更明显，适合需要更大指针摆幅的界面。
+
+默认使用 `LOUDNESS`，升级后不会改变现有显示效果。需要更明显的摆动时，可在创建运行时对象时选择 `PEAK`：
+
+```kotlin
+import com.qytech.spectrum.capture.SpectrumCaptureRuntime
+import com.qytech.spectrum.capture.VuMeterMode
+
+private val spectrumRuntime = SpectrumCaptureRuntime(
+    vuMeterMode = VuMeterMode.PEAK,
+)
+```
+
+也可以在应用运行期间切换。例如，将该方法连接到应用设置页：
+
+```kotlin
+fun applyVuMode(usePeak: Boolean) {
+    spectrumRuntime.setVuMeterMode(
+        if (usePeak) VuMeterMode.PEAK else VuMeterMode.LOUDNESS,
+    )
+}
+```
+
+模式切换只影响 VU 表数据，不会改变频谱柱、回采来源或当前播放状态。
+
 ---
 
 ## 更新日志
+
+### 待发布（2026-08-14）
+
+- 新增 `LOUDNESS` 与 `PEAK` 两种 VU 显示方式，客户可按产品界面选择真实响度或峰值响应
+- 默认保持 `LOUDNESS`，现有应用升级后无需修改即可继续使用原有显示方式
+- 支持在初始化时指定 VU 模式，也支持在应用运行期间即时切换
+- `PEAK` 模式可增强鼓点和瞬态信号的显示幅度，让 VU 指针或灯条响应更明显
 
 ### v0.2.2（2026-08-05）
 

@@ -11,7 +11,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、内嵌歌词与可中断资源释放 | 2026-08-12 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 |
-| <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱 & VU 表处理组件 | 2026-08-05 |
+| <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-07-07 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持卸载前资源清理协调 | 2026-08-07 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
@@ -75,7 +75,7 @@ Android AirPlay 接收端实现，支持多设备连接管理和网络状态自�
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg)](https://central.sonatype.com/artifact/io.github.qytech/spectrum)
 
-音频频谱分析与 VU 表处理组件，统一管理软件回采、硬件回采、频谱分析和左右声道 VU 响度。
+音频频谱分析与 VU 表处理组件，统一管理软件回采、硬件回采、频谱分析和左右声道 VU 显示。
 
 - ✅ FFT 频谱分析（支持配置 FFT 大小）
 - ✅ 单声道 `SpectrumVuProcessor`
@@ -83,7 +83,8 @@ Android AirPlay 接收端实现，支持多设备连接管理和网络状态自�
 - ✅ `SpectrumCaptureRuntime` 统一管理回采模式与生命周期
 - ✅ `AUTO` 默认硬件回采，支持用户指定软件、硬件或关闭模式
 - ✅ 不同硬件设备固定参数适配
-- ✅ 左右声道 RMS VU，不受硬件音量调节影响
+- ✅ VU 支持 `LOUDNESS` 真实响度与 `PEAK` 峰值显示
+- ✅ 左右声道独立显示，不受硬件音量调节影响
 
 ---
 
@@ -151,4 +152,4 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 
 ---
 
-> 仓库最后更新：2026-08-12
+> 仓库最后更新：2026-08-14
