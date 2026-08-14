@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.8")
+implementation("io.github.qytech:audioplayer:1.1.9")
 ```
 
 ## 功能特性
@@ -13,7 +13,7 @@ implementation("io.github.qytech:audioplayer:1.1.8")
 - ✅ DSD（DFF / DSF）原生播放，支持 Native DSD、DoP 和 D2P 输出模式
 - ✅ MQA 完整识别与展开，支持手动控制展开开关
 - ✅ SACD ISO 整轨 / 分轨播放
-- ✅ CUE 分轨解析与无缝切歌
+- ✅ CUE 分轨解析与无缝切歌，兼容常见文本编码和多种音频文件关联方式
 - ✅ 网盘 / WebDAV 网络播放，支持缓存、拖动与请求取消
 - ✅ 解析常见音频容器中的同步或非同步内嵌歌词
 - ✅ USB / DOP / D2P 硬件输出
@@ -47,6 +47,15 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.1.9（2026-08-14）
+
+- 提升 CUE 文件的文本编码兼容性，支持更多中文、繁体中文、日文、韩文及西文曲目信息。
+- 优化 CUE 与整轨音频文件的关联，对文件名大小写、扩展名差异和相对目录的兼容性更好。
+- 优化包含多个音频文件的 CUE 分轨识别。
+- 提升多个候选音频文件同时存在时的匹配准确性。
+
+---
 
 ### v1.1.8（2026-08-12）
 
