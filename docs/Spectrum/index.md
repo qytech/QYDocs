@@ -5,10 +5,8 @@
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:spectrum:0.2.2")
+implementation("io.github.qytech:spectrum:0.2.3")
 ```
-
-> `VuMeterMode` 将随 Spectrum 后续版本发布。正式版本号确认前，Maven Central 依赖仍保持为 `0.2.2`。
 
 ## 功能特性
 
@@ -96,7 +94,7 @@ fun applyVuMode(usePeak: Boolean) {
 
 ## 更新日志
 
-### 待发布（2026-08-14）
+### v0.2.3（2026-08-14）
 
 - 新增 `LOUDNESS` 与 `PEAK` 两种 VU 显示方式，客户可按产品界面选择真实响度或峰值响应
 - 默认保持 `LOUDNESS`，现有应用升级后无需修改即可继续使用原有显示方式
