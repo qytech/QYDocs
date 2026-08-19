@@ -1,6 +1,14 @@
-# Roon Library Change Log
+# Roon Android SDK
 
-# v0\.1\.0 （20260623）
+## 添加依赖
+
+```kotlin
+implementation("io.github.qytech:roon:0.1.0")
+```
+
+## 更新日志
+
+### v0.1.0（2026-06-23）
 
 1. 更新了 Roon Raat 1\.1\.47
 
@@ -12,6 +20,5 @@
 override fun onArtworkChanged(mimeType: String?, data: ByteArray?) {
 }
 ```
-
 
 
