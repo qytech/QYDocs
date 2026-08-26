@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.10")
+implementation("io.github.qytech:audioplayer:1.1.11")
 ```
 
 ## 功能特性
@@ -47,6 +47,9 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.1.11 (2026-08-26)
+- 修复 WAV 拖动进度误切下一曲
 
 ### v1.1.10（2026-08-18）
 
