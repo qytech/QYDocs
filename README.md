@@ -8,7 +8,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、内嵌歌词与可中断资源释放 | 2026-08-26 |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、内嵌歌词与可中断资源释放 | 2026-09-02 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
