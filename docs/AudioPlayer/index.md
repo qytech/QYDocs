@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.1.11")
+implementation("io.github.qytech:audioplayer:1.1.12")
 ```
 
 ## 功能特性
