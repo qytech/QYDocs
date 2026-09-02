@@ -23,7 +23,7 @@
 ```Kotlin
 dependencies {
     // 请使用最新版本
-    implementation("io.github.qytech:cdrom:0.2.5")
+    implementation("io.github.qytech:cdrom:0.2.6")
 }
 ```
 
@@ -208,6 +208,10 @@ fun release() {
 
 ## 更新日志 \(Changelog\)
 
+### v0\.2\.6 \(20260902\)
+1. 优化 CD 播放功能稳定性，降低偶发卡顿和无响应风险。
+2. 改进光盘托盘开关的异常恢复能力。
+3. 增强设备状态识别与兼容性，提升使用可靠性。
 
 ### v0\.2\.5 \(20260616\)
 
