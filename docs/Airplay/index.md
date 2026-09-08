@@ -2,13 +2,16 @@
 
 Android AirPlay 接收端实现，支持多设备连接管理和网络状态自动处理。
 
+`implementation("io.github.qytech:airplay:0.0.8")`
+
 ## 更新日志
 
-### v0.0.7
+### v0.0.8
 
-```kotlin
-implementation("io.github.qytech:airplay:0.0.7")
-```
+- 修复了多源切换时AudioTrack崩溃问题
+- 修复了DMAP 元数据错位与歌词/制作人冲刷歌曲标题
+
+### v0.0.7
 
 - 修复了开关 AirPlay 可能出现的端口占用问题
 - 修复了关闭 AirPlay 可能会卡住的问题
@@ -18,6 +21,8 @@ implementation("io.github.qytech:airplay:0.0.7")
 QYAirPlay.init(context)
 QYAirPlay.release(context)
 ```
+
+
 
 ### v0.0.5
 

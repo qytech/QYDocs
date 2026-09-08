@@ -49,7 +49,7 @@ audioPlayer.forceRelease()
 ## 更新日志
 ### v1.2.2 (2026-09-07)
 
-- 修复DSD暂停播放导致切歌问题：修复v1.2.0 修复时导致DSD暂停在切换问题
+- 修复DSD暂停播放导致切歌问题：修复v1.2.0修改导致DSD暂停在切换问题
 - 修复AudioFocus问题：移除库对AudioFocus的处理，直接有宿主处理AudioFocus，避免冲突
 
 ### v1.2.0 (2026-09-05)
