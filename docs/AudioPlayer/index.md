@@ -5,14 +5,14 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.0")
+implementation("io.github.qytech:audioplayer:1.2.3")
 ```
 
 ## 功能特性
 
 - ✅ DSD（DFF / DSF）原生播放，支持 Native DSD、DoP 和 D2P 输出模式
 - ✅ MQA 完整识别与展开，支持手动控制展开开关
-- ✅ SACD ISO 整轨 / 分轨播放
+- ✅ SACD ISO 整轨 / 分轨播放，支持相邻曲目连续无缝播放（RAW / DST，Native / DoP / D2P），保留专辑原有曲间间隔
 - ✅ CUE 分轨解析与无缝切歌，兼容常见文本编码和多种音频文件关联方式
 - ✅ 网盘 / WebDAV 网络播放，支持缓存、拖动与请求取消
 - ✅ 解析常见音频容器中的同步或非同步内嵌歌词
@@ -47,6 +47,21 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.3 (2026-09-09)
+
+#### 新增
+
+- 支持 SACD ISO 相邻曲目的连续无缝播放，覆盖 RAW、DST 两种存储格式及 Native、DoP、D2P 输出模式，保留专辑原有曲间间隔。
+
+#### 修复与优化
+
+- 修复部分 SACD 曲间边界可能重复或遗漏音频，以及连续切曲后进度更新不准确的问题。
+- 修复重采样播放时曲尾少量音频丢失的问题。
+- 减少部分 AAC/M4A 文件连续播放时的多余间隔。
+- 修复拖动进度后偶发播放停滞、无法自动进入下一曲的问题。
+- 提升不同格式音源之间切换的稳定性。
+
 ### v1.2.2 (2026-09-07)
 
 - 修复DSD暂停播放导致切歌问题：修复v1.2.0修改导致DSD暂停在切换问题
