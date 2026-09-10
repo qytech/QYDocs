@@ -10,7 +10,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 |------|------|------|
 | <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、内嵌歌词与可中断资源释放 | 2026-09-09 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-08-12 |
-| <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端实现 | 2026-07-07 |
+| <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端与会话接入，支持远程控制、元数据同步、封面接收和断线恢复 | 2026-09-10 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-09-02 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持卸载前资源清理协调 | 2026-08-07 |
@@ -64,11 +64,12 @@ Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg)](https://central.sonatype.com/artifact/io.github.qytech/airplay)
 
-Android AirPlay 接收端实现，支持多设备连接管理和网络状态自动处理。
+Android AirPlay 接收与会话接入库，支持多设备连接、远程控制、元数据同步、封面接收和断线恢复。
 
-- ✅ AirPlay 接收端
+- ✅ AirPlay 接收端与播放会话接入
 - ✅ 多设备连接管理
-- ✅ 网络状态自动处理
+- ✅ 远程控制、元数据同步与封面接收
+- ✅ 网络状态自动处理与断线恢复
 
 ---
 
@@ -153,4 +154,4 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 
 ---
 
-> 仓库最后更新：2026-09-09
+> 仓库最后更新：2026-09-10
