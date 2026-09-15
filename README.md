@@ -9,7 +9,8 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
 | <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、内嵌歌词与可中断资源释放 | 2026-09-09 |
-| <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay](docs/DLNA/) | DLNA 媒体渲染器，支持 QPlay 协议 | 2026-08-12 |
+| <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay | 2026-09-15 |
+| <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端与会话接入，支持远程控制、元数据同步、封面接收和断线恢复 | 2026-09-10 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) | USB 光驱控制库，支持 CD 播放、抓轨、硬件控制 | 2026-09-02 |
@@ -45,9 +46,11 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 
 ---
 
-### DLNA/QPlay
+### DLNA/QPlay（Deprecated）
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg)](https://central.sonatype.com/artifact/io.github.qytech/dlna)
+
+> Deprecated：旧版 `dlna` 模块已停止更新。新项目请迁移到 [QYDlna](docs/QYDlna/)。
 
 Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设备同步控制。
 
@@ -57,6 +60,21 @@ Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设
 - ✅ 歌词回调
 - ✅ 手机 - 设备同步控制
 - ✅ SQ 音质支持
+
+---
+
+### QYDlna
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg)](https://central.sonatype.com/artifact/io.github.qytech/qydlna)
+
+Android 局域网 DLNA/UPnP 接收 SDK，提供 MediaRenderer（DMR）播放控制和可选 MediaServer（DMS）曲库浏览，统一入口为 `com.qytech.dlna.QYDLNA`。
+
+- ✅ DMR 播放控制：播放、暂停、拖动、音量和静音
+- ✅ 可选 DMS 本地音乐目录浏览
+- ✅ QPlay、设备描述和状态回调
+- ✅ 前台服务模式，支持长时间后台运行
+- ✅ Android API 29+，当前仅提供 `arm64-v8a`
+- ⚠️ `0.0.1-snapshot` 为预发布版本，需完成真实局域网设备互操作验收
 
 ---
 
@@ -138,7 +156,7 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 - Android Framework（minSdk 29）
 - Kotlin / Java（JDK 11+）
 - 音视频开发
-- DLNA / AirPlay / QPlay / Roon / Qobuz 协议
+- QYDlna（DLNA / UPnP）/ AirPlay / QPlay / Roon / Qobuz 协议
 - Google Oboe（Native 音频输出）
 
 ---
@@ -148,10 +166,10 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 公司框架项目，其他客户项目基于此公共底座进行定制开发。核心能力：
 
 - 高保真音频播放（DSD、MQA、SACD、PCM、FLAC、WAV 等格式）
-- 网络播放（网盘、WebDAV、局域网 DLNA/AirPlay）
+- 网络播放（网盘、WebDAV、局域网 QYDlna/AirPlay）
 - 多设备音频分发与控制
 - USB 光驱与外部设备支持
 
 ---
 
-> 仓库最后更新：2026-09-10
+> 仓库最后更新：2026-09-15

@@ -1,4 +1,6 @@
-# DLNA/QPlay 模块
+# DLNA/QPlay 模块（Deprecated）
+
+> Deprecated：该旧版 DLNA/QPlay 模块已停止更新。新项目请使用 [QYDlna](../QYDlna/)。本页仅保留历史版本记录。
 
 Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设备同步控制、播放列表管理、歌词回调等功能。
 
