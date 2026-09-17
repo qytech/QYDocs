@@ -18,6 +18,8 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
+| <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨与 HTTP Range 局部嗅探 | 2026-09-17 |
+| <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持增量秒级复扫与流式批量持久化分发 | 2026-09-17 |
 
 ---
 
@@ -151,6 +153,34 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 
 ---
 
+### AudioProbe
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg)](https://central.sonatype.com/artifact/io.github.qytech/qyaudioprobe)
+
+Android 高性能音频格式嗅探与元数据提取组件，面向本地与网络高保真音频场景。
+
+- ✅ 全格式本地音频解码与深度元数据提取
+- ✅ DSD（DSF/DFF）与 SACD ISO 格式识别
+- ✅ 智能编码 CUE 分轨解析（GB18030 / Big5 / Shift-JIS / UTF-8）
+- ✅ HTTP / WebDAV / 私有网盘 Range 局部流式嗅探，无需下载整首文件
+- ✅ 内嵌封面与同级歌词快速抽取
+
+---
+
+### MediaScanner
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg)](https://central.sonatype.com/artifact/io.github.qytech/qymediascanner)
+
+Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流式批量分发与增量极速复扫。
+
+- ✅ 多线程并发目录遍历与高性能元数据提取
+- ✅ 流式批量回调机制（`scanDirectoryStreaming`），零内存堆积
+- ✅ 增量扫描版本比对（`encodeVersionCache`），秒级完成海量曲库复扫
+- ✅ 细粒度失败统计（`traversalFailures` / `probeFailedFiles`）与原子级任务取消
+- ✅ 经过数播一体机真机万首高规格曲库压测验证（[查看性能报告](docs/MediaScanner/benchmark-report.md)）
+
+---
+
 ## 技术栈
 
 - Android Framework（minSdk 29）
@@ -172,4 +202,4 @@ Roon Raat 协议支持，已更新至 Raat 1.1.47，修复 DSD512 卡顿，支�
 
 ---
 
-> 仓库最后更新：2026-09-15
+> 仓库最后更新：2026-09-17
