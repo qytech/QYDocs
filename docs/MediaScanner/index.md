@@ -1,6 +1,8 @@
-# QYMediaScanner Android SDK
+# QYMediaScanner Android SDK <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg)](https://central.sonatype.com/artifact/io.github.qytech/qymediascanner)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
+<img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
 
 QYMediaScanner 是专为 Android HiFi 播放设备设计的高性能多线程媒体扫描引擎。用于扫描本地存储、SD 卡、U 盘、移动硬盘或局域网共享目录中的音频文件，自动提取完整歌曲标签与封面，支持流式批量持久化和秒级增量复扫。客户统一使用 `com.qytech.mediascanner.QYMediaScanner`。
 

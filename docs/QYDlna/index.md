@@ -1,4 +1,8 @@
-# QYDlna Android SDK
+# QYDlna Android SDK <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg)](https://central.sonatype.com/artifact/io.github.qytech/qydlna)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
+<img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
 
 QYDlna 为 Android 提供局域网 DLNA/UPnP 接收能力：MediaRenderer（DMR）用于接收播放控制，MediaServer（DMS）用于浏览宿主提供的本地音乐目录。客户只需要使用 `com.qytech.dlna.QYDLNA`。
 

@@ -1,6 +1,8 @@
-# QYAudioProbe Android SDK
+# QYAudioProbe Android SDK <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg)](https://central.sonatype.com/artifact/io.github.qytech/qyaudioprobe)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
+<img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
 
 QYAudioProbe 是专为 Android 音频播放系统设计的高保真音频格式嗅探与元数据提取库。支持主流无损与高解析音频格式、DSD/SACD、CUE 智能分轨、内嵌封面与歌词提取，并支持 HTTP/WebDAV 网络音频 Range 局部嗅探。客户统一调用 `com.qytech.audioprobe.AudioMetadataProbe`。
 
