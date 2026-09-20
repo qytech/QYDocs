@@ -8,7 +8,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、内嵌歌词与可中断资源释放 | 2026-09-09 |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、连续快速定位稳定处理、内嵌歌词与可中断资源释放 | 2026-09-20 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay | 2026-09-15 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端与会话接入，支持远程控制、元数据同步、封面接收和断线恢复 | 2026-09-10 |
@@ -43,6 +43,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 - ✅ CUE 分轨解析与无缝切歌，兼容常见文本编码和多种音频文件关联方式
 - ✅ 常见音频容器内嵌歌词解析
 - ✅ 网盘 / WebDAV 网络播放
+- ✅ 连续快速定位时保留最后一次目标，减少重复暂停造成的播放停滞
 - ✅ 阻塞读写、预加载与 Seek 的快速中断请求
 - ✅ USB / DOP / D2P 硬件输出
 
@@ -202,4 +203,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-09-17
+> 仓库最后更新：2026-09-20

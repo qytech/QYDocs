@@ -5,7 +5,7 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.3")
+implementation("io.github.qytech:audioplayer:1.2.4")
 ```
 
 ## 功能特性
@@ -21,6 +21,10 @@ implementation("io.github.qytech:audioplayer:1.2.3")
 - ✅ 下一音源预加载与连续切换
 - ✅ 最大输出采样率设置与自动重采样
 - ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
+
+## 进度定位
+
+调用 `seekTo(positionMs)`（`positionMs` 为毫秒）可定位播放进度。连续快速调用时，库会保留最后一次定位目标并减少重复暂停、清空音频输出造成的播放停滞；显式调用 `pause()` 仍按暂停语义处理。
 
 ## 读取内嵌歌词
 
@@ -47,6 +51,16 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.4 (2026-09-20)
+
+#### 修复与优化
+
+- 优化连续快速调用 `seekTo(positionMs)`（例如拖动进度条）时的处理，减少重复暂停、清空输出引发的播放停滞，并保留最后一次定位目标。
+
+#### 升级说明
+
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.4`。
 
 ### v1.2.3 (2026-09-09)
 
