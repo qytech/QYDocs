@@ -18,7 +18,7 @@ QYMediaScanner 是专为 Android HiFi 播放设备设计的高性能多线程媒
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qymediascanner:0.0.2-snapshot")
+    implementation("io.github.qytech:qymediascanner:0.1.0")
 }
 ```
 
@@ -142,7 +142,7 @@ val report = scanner.scanDirectoryStreaming(
 |---|---|---|
 | `sourcePath` | `String` | 音频文件在磁盘上的物理绝对路径 |
 | `uri` | `String` | 文件的 URI 形式 |
-| `title` | `String` | 歌曲标题（音频标签为空时自动回退为文件名） |
+| `title` | `String` | 歌曲标题（音频标签为空或损坏时自动回退为文件名；0.1.0 起随 AudioProbe 修复常见标签乱码） |
 | `artist` | `String` | 艺术家名称 |
 | `album` | `String` | 专辑名称 |
 | `albumArtist` | `String` | 专辑艺术家 |

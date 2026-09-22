@@ -1,5 +1,11 @@
 # QYMediaScanner 更新日志
 
+## 0.1.0 - 2026-09-22
+
+### 发布
+- 正式版 `0.1.0` 定版，Maven 坐标为 `io.github.qytech:qymediascanner:0.1.0`。
+- 扫描入库的标题/艺术家/专辑随 AudioProbe 0.1.0 获得标签乱码与异常控制符修复（GBK→Latin1、UTF-8→GBK、撇号控制符等）。
+
 ## 0.0.2-snapshot - 2026-09-17
 
 ### 优化

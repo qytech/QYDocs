@@ -18,8 +18,8 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持 | 2026-07-07 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
-| <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨与 HTTP Range 局部嗅探 | 2026-09-17 |
-| <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持增量秒级复扫与流式批量持久化分发 | 2026-09-17 |
+| <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
+| <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持增量秒级复扫与流式批量持久化分发 | 2026-09-22 |
 
 ---
 
@@ -165,6 +165,7 @@ Android 高性能音频格式嗅探与元数据提取组件，面向本地与网
 - ✅ 智能编码 CUE 分轨解析（GB18030 / Big5 / Shift-JIS / UTF-8）
 - ✅ HTTP / WebDAV / 私有网盘 Range 局部流式嗅探，无需下载整首文件
 - ✅ 内嵌封面与同级歌词快速抽取
+- ✅ 标签乱码修复（GBK→Latin1、UTF-8→GBK、异常撇号控制符等）
 
 ---
 
@@ -178,6 +179,7 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 - ✅ 流式批量回调机制（`scanDirectoryStreaming`），零内存堆积
 - ✅ 增量扫描版本比对（`encodeVersionCache`），秒级完成海量曲库复扫
 - ✅ 细粒度失败统计（`traversalFailures` / `probeFailedFiles`）与原子级任务取消
+- ✅ 扫描元数据随 AudioProbe 修复常见标签乱码
 - ✅ 经过数播一体机真机万首高规格曲库压测验证（[查看性能报告](docs/MediaScanner/benchmark-report.md)）
 
 ---
@@ -203,4 +205,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-09-20
+> 仓库最后更新：2026-09-22

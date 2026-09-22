@@ -18,7 +18,7 @@ QYAudioProbe 是专为 Android 音频播放系统设计的高保真音频格式�
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qyaudioprobe:0.0.2-snapshot")
+    implementation("io.github.qytech:qyaudioprobe:0.1.0")
 }
 ```
 
@@ -162,6 +162,8 @@ httpResult.onSuccess { info ->
 
 1. **多语言与特殊编码乱码问题**：
    - 早期部分港台唱片或老歌采用 Big5、GBK / GB18030 或日文 Shift-JIS 编码。QYAudioProbe 内置了自适应智能字符集检测，会自动转换输出为标准的 UTF-8 字符串，无需宿主手动转码。
+   - 0.1.0 起还会修复常见“标签写坏”场景：GBK 字节被标成 Latin-1、UTF-8 被当 GBK 解、词内异常控制符充当撇号（如 `D'Arby`、`7' mix`）、私用区引号等。西欧正确原文（如 `Csárdás`、`Mêlée`）不会被误改。
+   - 含 `U+FFFD` 的损坏标题不会猜测补字；标签不可用时会回退文件名。
 2. **封面图片缓存与加载**：
    - 解析到的内嵌封面会自动提取保存至应用缓存目录（如 `/data/user/0/<package>/cache/covers/`），返回的 `coverPath` 为标准的本地绝对路径。宿主可以直接使用 `AsyncImage(model = info.coverPath)` 进行展示。
 3. **主线程安全性**：
