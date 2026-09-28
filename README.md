@@ -9,7 +9,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
 | <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、连续快速定位稳定处理、内嵌歌词与可中断资源释放 | 2026-09-20 |
-| <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay | 2026-09-15 |
+| <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay，改进播放控制和曲目信息同步 | 2026-09-28 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端与会话接入，支持远程控制、元数据同步、封面接收和断线恢复 | 2026-09-10 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
@@ -77,7 +77,11 @@ Android 局域网 DLNA/UPnP 接收 SDK，提供 MediaRenderer（DMR）播放控�
 - ✅ QPlay、设备描述和状态回调
 - ✅ 前台服务模式，支持长时间后台运行
 - ✅ Android API 29+，当前仅提供 `arm64-v8a`
-- ⚠️ `0.0.1-snapshot` 为预发布版本，需完成真实局域网设备互操作验收
+- 当前版本 `0.1.0`：改进进度拖动、换曲状态与曲目信息同步，修复音量控制卡顿
+
+```kotlin
+implementation("io.github.qytech:qydlna:0.1.0")
+```
 
 ---
 
@@ -205,4 +209,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-09-22
+> 仓库最后更新：2026-09-28

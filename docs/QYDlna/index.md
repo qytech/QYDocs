@@ -6,7 +6,7 @@
 
 QYDlna 为 Android 提供局域网 DLNA/UPnP 接收能力：MediaRenderer（DMR）用于接收播放控制，MediaServer（DMS）用于浏览宿主提供的本地音乐目录。客户只需要使用 `com.qytech.dlna.QYDLNA`。
 
-> `0.0.1-snapshot` 是预发布版本。正式接入前必须用目标发送端和真实局域网设备验证发现、播放、暂停、拖动、音量、连续播放、DMS 浏览和停止重启。
+> 当前版本：`0.1.0`。本次改进播放控制、换曲进度与曲目信息同步，详见[更新日志](CHANGELOG.md)。
 
 ## 1. 环境与依赖
 
@@ -17,11 +17,11 @@ QYDlna 为 Android 提供局域网 DLNA/UPnP 接收能力：MediaRenderer（DMR�
 - 默认端口为 `8192`；多实例应使用不同端口，或将 `port` 设为 `0` 请求系统分配
 - DMS 的 `roots` 必须是宿主进程可读取的本地绝对路径，SAF URI 不能直接作为曲库根目录
 
-使用团队提供的 Maven Central 预发布源，然后添加依赖：
+添加依赖：
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qydlna:0.0.1-snapshot")
+    implementation("io.github.qytech:qydlna:0.1.0")
 }
 ```
 
