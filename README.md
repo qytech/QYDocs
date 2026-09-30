@@ -11,7 +11,8 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、连续快速定位稳定处理、内嵌歌词与可中断资源释放 | 2026-09-20 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay，改进播放控制和曲目信息同步 | 2026-09-28 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
-| <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay](docs/Airplay/) | AirPlay 接收端与会话接入，支持远程控制、元数据同步、封面接收和断线恢复 | 2026-09-10 |
+| <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay（Deprecated）](docs/Airplay/) | 旧版 AirPlay 接收与会话接入，新项目推荐使用 QYAirPlay2 | 2026-09-30 |
+| <a href="docs/QYAirPlay2/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYAirPlay2](docs/QYAirPlay2/) · [Changelog](docs/QYAirPlay2/CHANGELOG.md) | AirPlay 音频接收与播放，支持多手机播放接管、歌曲信息与封面、硬件音量接入 | 2026-09-30 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库，支持 CD 播放、免生命周期绑定的后台原子抓轨与硬件控制 | 2026-09-17 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持卸载前资源清理协调 | 2026-08-07 |
@@ -85,9 +86,11 @@ implementation("io.github.qytech:qydlna:0.1.0")
 
 ---
 
-### AirPlay
+### AirPlay（Deprecated）
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg)](https://central.sonatype.com/artifact/io.github.qytech/airplay)
+
+> Deprecated：旧版 `airplay` 已标记为过时。新项目推荐使用 [QYAirPlay2](docs/QYAirPlay2/)，旧版说明与历史记录仍保留。
 
 Android AirPlay 接收与会话接入库，支持多设备连接、远程控制、元数据同步、封面接收和断线恢复。
 
@@ -95,6 +98,24 @@ Android AirPlay 接收与会话接入库，支持多设备连接、远程控制�
 - ✅ 多设备连接管理
 - ✅ 远程控制、元数据同步与封面接收
 - ✅ 网络状态自动处理与断线恢复
+
+---
+
+### QYAirPlay2 <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;">
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg)](https://central.sonatype.com/artifact/io.github.qytech/qyairplay2)
+
+Android 局域网 AirPlay 音频接收 SDK，入口为 `com.qytech.airplay.QYAirPlay2`。
+
+- 接收播放、歌曲信息、封面和进度，支持多手机播放接管
+- 支持播放、暂停、切歌、进度与音量控制，具体能力取决于手机系统和音乐 App
+- 可使用软件音量，或接入设备已有的硬件音量控制
+- Android API 29+，当前仅提供 `arm64-v8a`；设备需配置 UDP 319/320
+- 当前版本 `0.1.0`：改进暂停恢复与手动切歌，详见[接入说明](docs/QYAirPlay2/)和[更新日志](docs/QYAirPlay2/CHANGELOG.md)
+
+```kotlin
+implementation("io.github.qytech:qyairplay2:0.1.0")
+```
 
 ---
 
@@ -219,4 +240,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-09-28
+> 仓库最后更新：2026-09-30

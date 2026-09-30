@@ -1,4 +1,6 @@
-# AirPlay 模块
+# AirPlay 模块（Deprecated）
+
+> Deprecated：旧版 `airplay` 已标记为过时。新项目推荐使用 [QYAirPlay2](../QYAirPlay2/)；下文保留旧版接入说明和历史记录。
 
 `airplay` 是面向 QYTech Android 音频设备的 AirPlay 接收与会话接入库。
 
