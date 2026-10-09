@@ -15,7 +15,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/QYAirPlay2/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYAirPlay2](docs/QYAirPlay2/) · [Changelog](docs/QYAirPlay2/CHANGELOG.md) | AirPlay 音频接收与播放，支持多手机播放接管、歌曲信息与封面、硬件音量接入 | 2026-09-30 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库，支持 CD 播放、免生命周期绑定的后台原子抓轨与硬件控制 | 2026-09-17 |
-| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持卸载前资源清理协调 | 2026-08-07 |
+| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持跨平台/老旧设备匿名访问兼容与卸载前资源协调 | 2026-10-09 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持，支持全格式 PCM/DSD 高保真输出、MQA 核心解码与动态信号路径 | 2026-09-29 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
@@ -152,7 +152,7 @@ Android 平台外部 USB 光驱控制库。支持 CD 播放（基于 Native Oboe
 
 ### NetworkStorage
 
-网络存储管理，支持 SMB/NFS/WebDAV 等协议，并可在 SMB/NFS 卸载前协调播放器关闭相关文件句柄。
+网络存储管理，提供 SMB / NFS / WebDAV 等协议的设备发现、目录浏览与挂载管理能力。全面兼容现代与老旧 NAS/Samba 设备的匿名访问与协议自适应降级，并支持在卸载前协调播放器释放文件句柄。
 
 ---
 
@@ -240,4 +240,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-09-30
+> 仓库最后更新：2026-10-09

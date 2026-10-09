@@ -5,7 +5,7 @@ Android 网络存储管理组件，提供 SMB 与 NFS 的发现、挂载、连�
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:networkstorage:0.1.7")
+implementation("io.github.qytech:networkstorage:0.1.8")
 ```
 
 ## 卸载前协调播放资源
@@ -32,6 +32,13 @@ val nfsManager = NfsStorageManager(
 `playbackStorageCoordinator.stopAndClose(...)` 代表接入方自己的播放资源协调实现，不属于 NetworkStorage SDK。回调返回 `true` 表示清理已完成；驱动最多等待 1 秒，随后继续执行卸载。未传入协调器时使用 `StorageRemovalCoordinator.NONE`，行为与旧版本一致。
 
 ## 更新日志
+
+### v0.1.8（2026-10-09）
+
+- 增强 Samba 跨平台设备兼容性，全面支持老旧设备（SMB 1.0 / CIFS）与现代网络存储设备（SMB 2.x / SMB 3.x）的自适应协商与连接。
+- 优化匿名登录访问体验，支持无需账号密码直接浏览与挂载开放共享目录（兼容 Windows 共享、主流品牌 NAS 以及 Linux Samba 服务器）。
+- 优化网络存储协议协商与降级流程，大幅降低连接建立耗时，提升连接成功率。
+- 提升底层网络挂载兼容性，保障各类存储设备在匿名访问模式下的稳定挂载。
 
 ### v0.1.7（2026-08-07）
 
