@@ -1,14 +1,17 @@
 # Qobuz Connect Android SDK 使用文档
 
-**Library:** `com.qytech:qobuz-connect`
+**Library:** `io.github.qytech:qobuz-connect`
 **Repository:** [Maven Central](https://central.sonatype.com/search?q=qobuz-connect)
 **Language:** Kotlin / Android
 
 ## 更新日志
 
-```Plain Text
-implementation("io.github.qytech:qobuz-connect:0.0.2")
-```
+### v0.0.4（2026-10-20）
+
+- 将音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.7`、Cdrom `0.2.9` 配套使用。
+- 升级时请同时更新同一应用中依赖 Oboe 的音频组件，避免混用不同版本。
+
+完整变更记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ### v0\.0\.2
 
@@ -34,21 +37,21 @@ SDK 核心类为 `QobuzConnectManager`，负责：
 
 在您的模块 `build.gradle`（或 `build.gradle.kts`）中添加：
 
-```Kotlin
+```kotlin
 // build.gradle.kts
 dependencies {
-    implementation("com.qytech:qobuz-connect:<latest_version>")
+    implementation("io.github.qytech:qobuz-connect:0.0.4")
 }
 ```
 
-```Groovy
+```groovy
 // build.gradle (Groovy)
 dependencies {
-    implementation 'com.qytech:qobuz-connect:<latest_version>'
+    implementation 'io.github.qytech:qobuz-connect:0.0.4'
 }
 ```
 
-请前往 [Maven Central](https://central.sonatype.com/search?q=qobuz-connect) 查询最新版本号。
+Qobuz Connect `0.0.4` 使用 Oboe 1.11，与 AudioPlayer `1.2.7`、Cdrom `0.2.9` 配套使用。不要将基于 Oboe 1.10 的 Qobuz Connect `0.0.3` 或 Cdrom `0.2.8` 与上述版本混用。
 
 ---
 
@@ -275,5 +278,5 @@ SDK 使用 Android `NsdManager` 通过 **DNS\-SD** 协议广播设备，使 Qobu
  A: 这些方法内部有状态保护（例如 `play()` 仅在 `!isPlaying` 时执行）。请先确认当前 `playbackState` 是否符合调用前提条件。
 
 **Q: 如何获取最新版本号？**
- A: 访问 [Maven Central 搜索页](https://central.sonatype.com/search?q=qobuz-connect) 查询 `com.qytech:qobuz-connect` 的最新发布版本。
+ A: 访问 [Maven Central](https://central.sonatype.com/artifact/io.github.qytech/qobuz-connect) 查询 `io.github.qytech:qobuz-connect` 的最新发布版本。
 

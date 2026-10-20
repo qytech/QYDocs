@@ -13,16 +13,18 @@
 
 
 
-在你的 `build.gradle` (Kotlin DSL) 中添加：
+在你的 `build.gradle.kts` (Kotlin DSL) 中添加：
 
 
 
-```Kotlin
+```kotlin
 dependencies {
     // 请使用最新版本
-    implementation("io.github.qytech:cdrom:0.2.8")
+    implementation("io.github.qytech:cdrom:0.2.9")
 }
 ```
+
+Cdrom `0.2.9` 使用 Oboe 1.11，与 AudioPlayer `1.2.7`、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的旧版音频组件。
 
 
 
@@ -273,6 +275,11 @@ fun release() {
 ## 更新日志 (Changelog)
 
 > 完整独立变更历史请参阅专属更新日志文档：**[CHANGELOG.md](./CHANGELOG.md)**
+
+### v0.2.9（2026-10-20）
+
+- 将音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.7` 配套使用。
+- 升级时请同时更新同一应用中依赖 Oboe 的音频组件，避免混用不同版本。
 
 ### v0.2.8 (20260917)
 1. **生命周期完全解绑与后台全托管**：引入进程级单例管理器 `CdromRipManager`，彻底解除抓轨任务与 Activity / ViewModel 生命周期的绑定。即使界面退出、屏幕旋转、销毁调用 `controller.release()`，后台抓轨任务依然在守护单例中平稳运行，绝不误杀。

@@ -5,8 +5,10 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.5")
+implementation("io.github.qytech:audioplayer:1.2.7")
 ```
+
+AudioPlayer `1.2.7` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
 
 ## 功能特性
 
@@ -21,6 +23,13 @@ implementation("io.github.qytech:audioplayer:1.2.5")
 - ✅ 下一音源预加载与连续切换
 - ✅ 最大输出采样率设置与自动重采样
 - ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
+- 支持已适配设备与固件上的 HDMI ARC 输入播放，应用使用无参入口 `HdmiArcPlayer()`
+
+## HDMI ARC 输入接入
+
+按 [接入指南](HDMI-ARC-INTEGRATION.md) 添加依赖、连接电视，再复制 [Kotlin Demo](HDMI-ARC-DEMO.md) 的两个文件并在页面注册一次。应用使用 `HdmiArcPlayer()`，无需查询设备信息或配置音频参数。
+
+ARC 输入与 HDMI 输出互斥。保持工作线程串行调用，失败、退出或切源前等待释放；回调不直接控制播放器。输出选择和自动恢复由应用管理，详见指南的注意事项。
 
 ## 进度定位
 
@@ -51,6 +60,39 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.7（2026-10-19）
+
+#### 新增
+
+- 在已适配的设备与固件上支持 HDMI ARC 输入播放，使用无参入口 `HdmiArcPlayer()`；应用无需查询设备信息或配置采集参数。
+- 提供 [ARC 接入指南](HDMI-ARC-INTEGRATION.md) 和 [Kotlin Demo](HDMI-ARC-DEMO.md)，包含准备、播放、暂停、恢复、停止和释放示例。
+
+#### 修复与优化
+
+- 未识别到可用 ARC 输入或输入不能启动时明确返回失败；持续输入错误进入错误状态，启动错误不会被播放成功状态覆盖。
+- 改善 ARC 输入格式切换、停止及释放后的播放稳定性。
+- 修复部分普通 FLAC 音频被误判为 DTS，导致无声或提前结束的问题。
+- 修复 DTS-in-FLAC 播放尾部被截断及连续播放时音频遗漏的问题。
+- 将音频输出依赖升级至 Oboe 1.11。
+
+#### 升级说明
+
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.7`。
+- 同一应用中的 Oboe 音频组件须使用配套版本，详见上方依赖说明。
+- 曾使用带参数 ARC 构造的应用须改为 `HdmiArcPlayer()` 并重新编译。
+- ARC 输入与用户选择的 HDMI 输出互斥；输出选择、切源及连接恢复由应用管理。
+
+### v1.2.6 (2026-10-13)
+
+#### 修复与优化
+
+- 修复 DSD 与 PCM 播放切换、停止及释放后的输出模式状态同步，避免沿用旧模式。
+- 修复无缝切歌回退重新准备后未刷新音频元数据的问题。
+
+#### 升级说明
+
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.6`。
 
 ### v1.2.5 (2026-09-20)
 

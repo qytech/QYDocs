@@ -1,10 +1,15 @@
 # Changelog
 
-本文档记录 `qobuz` 模块当前仓库内可确认的版本与改动信息。
+本文档记录 Qobuz Connect（`io.github.qytech:qobuz-connect`）的版本与改动信息。
+
+## v0.0.4（2026-10-20）
+
+- 将音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.7`、Cdrom `0.2.9` 配套使用。
+- 升级时请同时更新同一应用中依赖 Oboe 的音频组件，避免混用不同版本。
 
 ## [0.0.2] - 2026-03
 
-当前 `qobuz/build.gradle.kts` 中声明的发布版本为 `0.0.2`。
+本节记录 `0.0.2` 的接入能力。
 
 ### Added
 

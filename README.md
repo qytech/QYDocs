@@ -8,15 +8,15 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、连续快速定位稳定处理、内嵌歌词与可中断资源释放 | 2026-09-20 |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放及配套设备 HDMI ARC 输入 | 2026-10-20 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay，改进播放控制和曲目信息同步 | 2026-09-28 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay（Deprecated）](docs/Airplay/) | 旧版 AirPlay 接收与会话接入，新项目推荐使用 QYAirPlay2 | 2026-09-30 |
 | <a href="docs/QYAirPlay2/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYAirPlay2](docs/QYAirPlay2/) · [Changelog](docs/QYAirPlay2/CHANGELOG.md) | AirPlay 音频接收与播放，支持多手机播放接管、歌曲信息与封面、硬件音量接入 | 2026-09-30 |
 | <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
-| <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库，支持 CD 播放、免生命周期绑定的后台原子抓轨与硬件控制 | 2026-09-17 |
+| <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库，支持 CD 播放、免生命周期绑定的后台原子抓轨与硬件控制 | 2026-10-20 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持跨平台/老旧设备匿名访问兼容与卸载前资源协调 | 2026-10-09 |
-| <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-07-07 |
+| <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-10-20 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持，支持全格式 PCM/DSD 高保真输出、MQA 核心解码与动态信号路径 | 2026-09-29 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
@@ -47,6 +47,14 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 - ✅ 连续快速定位时保留最后一次目标，减少重复暂停造成的播放停滞
 - ✅ 阻塞读写、预加载与 Seek 的快速中断请求
 - ✅ USB / DOP / D2P 硬件输出
+- 已适配设备与固件上的 HDMI ARC 输入播放，使用无参入口 `HdmiArcPlayer()`；与用户选择的 HDMI 输出互斥
+- 当前版本 `1.2.7`：新增 ARC 接入说明，修复部分 FLAC 识别和 DTS-in-FLAC 尾部、连续播放问题；音频输出依赖升级至 Oboe 1.11
+
+```kotlin
+implementation("io.github.qytech:audioplayer:1.2.7")
+```
+
+[HDMI ARC 接入指南](docs/AudioPlayer/HDMI-ARC-INTEGRATION.md) · [Kotlin Demo](docs/AudioPlayer/HDMI-ARC-DEMO.md)
 
 ---
 
@@ -147,6 +155,11 @@ Android 平台外部 USB 光驱控制库。支持 CD 播放（基于 Native Oboe
 - ✅ 元数据支持：支持计算 DiscID（FreeDB/GnuDB 标准）
 - ✅ 混合模式支持：完美处理 Mixed Mode CD（数据 + 音频）
 - ✅ 抓轨功能：支持将 CD 音频轨道提取保存为 WAV 文件
+- 当前版本 `0.2.9`：音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.7` 配套使用
+
+```kotlin
+implementation("io.github.qytech:cdrom:0.2.9")
+```
 
 ---
 
@@ -166,6 +179,13 @@ Qobuz Connect Android SDK，基于 Oboe 的音频输出、设备发现与播放�
 - ✅ 基于 Oboe 的音频输出
 - ✅ 设备发现与控制
 - ✅ minSdk 29，仅支持 arm64-v8a
+- 当前版本 `0.0.4`：音频输出依赖升级至 Oboe 1.11
+
+```kotlin
+implementation("io.github.qytech:qobuz-connect:0.0.4")
+```
+
+同一应用集成多个音频组件时，推荐配套使用 AudioPlayer `1.2.7`、Cdrom `0.2.9`、Qobuz Connect `0.0.4`。不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。
 
 ---
 
@@ -240,4 +260,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-10-09
+> 仓库最后更新：2026-10-20
