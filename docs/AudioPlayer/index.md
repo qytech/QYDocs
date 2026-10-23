@@ -5,10 +5,10 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.7")
+implementation("io.github.qytech:audioplayer:1.2.8")
 ```
 
-AudioPlayer `1.2.7` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
+AudioPlayer `1.2.8` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
 
 ## 功能特性
 
@@ -57,9 +57,20 @@ audioPlayer.forceRelease()
 
 `requestAbort()` 是非阻塞请求，不能替代 `forceRelease()`。业务侧仍需在 Service 或其他明确的生命周期 owner 中持有播放器，并保证后续释放路径只执行一次。
 
+打开音源或读取音频信息时，若操作因超时等原因中断、且不是应用主动取消，播放器会进入错误状态并通过 `PlayerListener.onError(...)` 通知应用，不再持续停留在准备状态。
+
 ---
 
 ## 更新日志
+
+### v1.2.8（2026-10-23）
+
+- 修复打开音源或读取音频信息被中断后可能一直停留在准备状态的问题；非主动取消时返回错误，便于应用提示失败或重试。
+- 修复音频输出恢复后可能无法收到播放完成通知的问题。
+- 修复部分 DSD 音源起播异常的问题。
+- 修复停止播放后收到延迟错误时可能重新启动音频输出的问题。
+- 修复 DSD 转 PCM 播放在恢复输出后采样率不符合设备限制的问题。
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.8`。
 
 ### v1.2.7（2026-10-19）
 

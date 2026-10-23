@@ -1,6 +1,6 @@
 # HDMI ARC 开发者接入指南
 
-更新日期：2026-10-19。适用于已适配 ARC 的配套 Android 设备与固件。
+更新日期：2026-10-23。适用于已适配 ARC 的配套 Android 设备与固件。
 
 应用使用 `HdmiArcPlayer()` 接收并播放电视声音，无需查询设备信息或配置音频参数。
 
@@ -30,7 +30,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:audioplayer:1.2.7")
+    implementation("io.github.qytech:audioplayer:1.2.8")
 }
 ```
 

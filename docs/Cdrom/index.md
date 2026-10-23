@@ -24,7 +24,7 @@ dependencies {
 }
 ```
 
-Cdrom `0.2.9` 使用 Oboe 1.11，与 AudioPlayer `1.2.7`、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的旧版音频组件。
+Cdrom `0.2.9` 使用 Oboe 1.11，与 AudioPlayer `1.2.8`、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的旧版音频组件。
 
 
 

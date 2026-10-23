@@ -4,7 +4,7 @@
 
 QYAirPlay2 为 Android 设备提供局域网 AirPlay 音频接收与播放、歌曲信息与封面，以及对手机的播放控制。接入入口为 `com.qytech.airplay.QYAirPlay2`。
 
-> 当前版本：`0.1.0`（2026-09-30）。版本变化见[更新日志](CHANGELOG.md)。
+> 当前版本：`0.1.1`（2026-10-23）。版本变化见[更新日志](CHANGELOG.md)。
 
 ## 1. 环境与依赖
 
@@ -15,7 +15,7 @@ QYAirPlay2 为 Android 设备提供局域网 AirPlay 音频接收与播放、歌
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qyairplay2:0.1.0")
+    implementation("io.github.qytech:qyairplay2:0.1.1")
 }
 ```
 
@@ -126,6 +126,39 @@ QYAirPlay2.stop()
 
 运行期间更改设备名、端口或音量模式时，先调用 `stop()`，等待 `state.isRunning == false` 后再 `start()`。状态收集与监听器应随宿主页面或服务的生命周期释放。
 
+只需断开当前手机、保留接收功能时，调用 `QYAirPlay2.disconnect()`。手机可重新选择设备连接；通过 `state.isConnected` 或 `onDisconnected()` 观察断开结果，失败信息见 `state.lastError`。
+
+### 与已有播放器交接
+
+宿主已有本地播放器时，可使用带 `onBeforePlayback` 的 `start()` 重载，在 AirPlay 开始输出前释放原播放器占用的音频输出。旧版 `start()` 调用方式保留；不需要交接时，可省略此回调或传入 `null`。
+
+```kotlin
+import com.qytech.airplay.QYAirPlay2
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+QYAirPlay2.start(
+    context = context,
+    deviceName = "HiFi AirPlay",
+    port = 7000,
+    softwareVolumeEnabled = true,
+    manageMediaSession = false,
+    onBeforePlayback = { isCurrent, complete ->
+        // hostScope 与 releasePreviousOutput 由宿主提供。
+        hostScope.launch(Dispatchers.IO) {
+            if (!isCurrent()) return@launch
+            val ready = releasePreviousOutput() // 释放完成返回 true，失败返回 false。
+            if (isCurrent()) complete(ready)
+        }
+    },
+)
+```
+
+- `manageMediaSession = false` 适用于宿主自行管理媒体会话的情况；需要 SDK 管理时设为 `true`。
+- 回调在音频工作线程触发，应立即调度宿主工作，不阻塞回调。确认旧输出已释放后调用一次 `complete(true)`，无法准备时调用 `complete(false)`。
+- 在实际释放输出和确认结果前检查 `isCurrent()`；如内部还有排队或等待，也应在等待结束后检查。过期请求不得影响当前播放。
+- 准备等待上限为 5 秒，及时确认立即继续。拒绝或超时后本次手机连接不再重复请求；重新连接后可再次准备。宿主应在关闭功能时停止接收端，并取消自建任务。
+
 ### 前台服务模式
 
 需要库自带的前台服务时，成对使用：
@@ -193,11 +226,12 @@ QYAirPlay2.stop()
 | `seekTo(30_000L)` | 跳转到 30 秒，参数单位为毫秒 |
 | `setVolumePercent(60f)` | 音量百分比，范围 0..100 |
 | `setVolume(-15.0)` | 音量分贝值，范围 -144.0..0.0 dB |
+| `disconnect()` | 断开当前手机连接，保持接收与设备发现 |
 | `reannounce()` | 重新广播设备，供手机发现 |
 
 以上方法通过 `QYAirPlay2` 调用。百分比 `0f` 或 `-144.0 dB` 表示静音；`0.0 dB` 表示无衰减。
 
-通过 `state` 或 `currentState` 读取运行状态、连接状态、曲目信息、播放进度、音量和封面。手机控制请求失败通过 `state.lastError` 与 `events` 查看，不会触发 `onError` 或中断正在播放的音乐；`onError` 表示接收端运行异常。
+通过 `state` 或 `currentState` 读取运行状态、连接状态、曲目信息、播放进度、音量和封面。手机播放控制请求失败通过 `state.lastError` 与 `events` 查看，不会触发 `onError`；`onError` 表示接收端运行异常。`disconnect()` 会先停止当前输出，再请求断开连接。
 
 需要传统回调时，实现 `QYAirPlay2Listener` 并调用 `addListener(listener)`。请在主线程注册：首次 `onStateChanged` 在注册调用线程同步执行，后续回调在主线程执行；不再使用时调用 `removeListener(listener)`。
 
@@ -205,9 +239,10 @@ QYAirPlay2.stop()
 
 ## 6. 升级与使用说明
 
+- `0.1.1` 改善首次播放、切歌、重连及播放恢复；网络抖动时可能短暂停顿并恢复，实际响应取决于发送端、网络与设备。
 - 从 `0.0.1-snapshot` 升级后，重新编译所有依赖 SDK 的模块。现有 `QYAirPlay2` 常用方法和双参数音量回调可继续使用。
 - 多台手机使用同一设备时，后发起播放的手机会接管当前播放；仅浏览设备不会中断音乐。
 - 关闭功能时停止接收端并移除监听，宿主自行创建的协程也应按其生命周期取消。
-- [下载 API 文档（javadoc.jar）](https://repo.maven.apache.org/maven2/io/github/qytech/qyairplay2/0.1.0/qyairplay2-0.1.0-javadoc.jar)。解压后打开 `index.html` 查看公开 API、参数和状态说明；版本变化见[更新日志](CHANGELOG.md)。
+- [下载 API 文档（javadoc.jar）](https://repo.maven.apache.org/maven2/io/github/qytech/qyairplay2/0.1.1/qyairplay2-0.1.1-javadoc.jar)。解压后打开 `index.html` 查看公开 API、参数和状态说明；版本变化见[更新日志](CHANGELOG.md)。
 
 返回[文档首页](../../README.md)。

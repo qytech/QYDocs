@@ -1,6 +1,6 @@
 # HDMI ARC Kotlin Demo
 
-更新日期：2026-10-19。配套阅读：[接入指南](HDMI-ARC-INTEGRATION.md)。
+更新日期：2026-10-23。配套阅读：[接入指南](HDMI-ARC-INTEGRATION.md)。
 
 本示例在前台页面依次播放、暂停、恢复、停止后重启，退出或失败时释放。复制下面两个完整文件，再在页面注册一次即可运行。
 
@@ -17,7 +17,7 @@
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:audioplayer:1.2.7")
+    implementation("io.github.qytech:audioplayer:1.2.8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
 }

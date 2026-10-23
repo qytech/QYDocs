@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-Qobuz Connect `0.0.4` 使用 Oboe 1.11，与 AudioPlayer `1.2.7`、Cdrom `0.2.9` 配套使用。不要将基于 Oboe 1.10 的 Qobuz Connect `0.0.3` 或 Cdrom `0.2.8` 与上述版本混用。
+Qobuz Connect `0.0.4` 使用 Oboe 1.11，与 AudioPlayer `1.2.8`、Cdrom `0.2.9` 配套使用。不要将基于 Oboe 1.10 的 Qobuz Connect `0.0.3` 或 Cdrom `0.2.8` 与上述版本混用。
 
 ---
 
