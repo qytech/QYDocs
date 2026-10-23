@@ -17,7 +17,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库，支持 CD 播放、免生命周期绑定的后台原子抓轨与硬件控制 | 2026-10-23 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，支持跨平台/老旧设备匿名访问兼容与卸载前资源协调 | 2026-10-09 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-10-23 |
-| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持，提供 PCM/DSD 输出、设备音频能力查询、MQA 核心解码与动态信号路径 | 2026-10-20 |
+| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持，提供 PCM/DSD 输出、设备音频能力查询、MQA 核心解码、宿主音源切换与动态信号路径 | 2026-10-23 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
 | <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持增量秒级复扫与流式批量持久化分发 | 2026-09-22 |
@@ -203,10 +203,10 @@ Roon Raat 协议支持，提供 PCM/DSD 音频串流、MQA 核心解码、动态
 - ✅ 双向硬件音量联动与静音控制
 - ✅ 封面与多语言元数据实时同步
 - ✅ 网络断线自动重连与恢复
-- 当前版本 `0.1.2`：修复部分场景播放中断与异常退出，改善暂停恢复和音频格式识别；升级方式见 [Roon 接入说明](docs/Roon/)。
+- 当前版本 `0.1.3`：新增输出释放与播放前准备接口，支持宿主协调 Roon 与其他音源的切换；需宿主同步接入，详见 [Roon 接入说明](docs/Roon/)。
 
 ```kotlin
-implementation("io.github.qytech:roon:0.1.2")
+implementation("io.github.qytech:roon:0.1.3")
 ```
 
 ---
