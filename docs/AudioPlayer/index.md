@@ -5,10 +5,10 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.8")
+implementation("io.github.qytech:audioplayer:1.2.9")
 ```
 
-AudioPlayer `1.2.8` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
+AudioPlayer `1.2.9` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
 
 ## 功能特性
 
@@ -24,6 +24,7 @@ AudioPlayer `1.2.8` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connec
 - ✅ 最大输出采样率设置与自动重采样
 - ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
 - 支持已适配设备与固件上的 HDMI ARC 输入播放，应用使用无参入口 `HdmiArcPlayer()`
+- ✅ 支持 Dolby（AC3 / E-AC3 / TrueHD）与 DTS-HD HDMI 透传（Passthrough），经由 IEC 61937 / MAT 封包传输
 
 ## HDMI ARC 输入接入
 
@@ -62,6 +63,13 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.9（2026-10-27）
+
+- 支持 Dolby 与 DTS-HD 的 HDMI 透传（Passthrough）：通过 IEC 61937 / MAT 封装格式传输 AC3、E-AC3、TrueHD 与 DTS-HD 有效载荷。
+- 完善 TrueHD EOF 尾部音频排空（drain）并严格校验丢弃无效 E-AC3 尾包。
+- 优化底层播放后端失败传播、快进到曲尾的正常结束处理及 Native 声道布局初始化。
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.9`。
 
 ### v1.2.8（2026-10-23）
 

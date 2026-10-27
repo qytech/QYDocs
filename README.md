@@ -8,7 +8,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放及配套设备 HDMI ARC 输入 | 2026-10-23 |
+| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、HDMI ARC 输入及 Dolby / DTS 多声道透传 | 2026-10-27 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS 与 QPlay，改进播放控制和曲目信息同步 | 2026-09-28 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器，已停止更新 | 2026-08-12 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay（Deprecated）](docs/Airplay/) | 旧版 AirPlay 接收与会话接入，新项目推荐使用 QYAirPlay2 | 2026-09-30 |
@@ -48,10 +48,11 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 - ✅ 阻塞读写、预加载与 Seek 的快速中断请求
 - ✅ USB / DOP / D2P 硬件输出
 - 已适配设备与固件上的 HDMI ARC 输入播放，使用无参入口 `HdmiArcPlayer()`；与用户选择的 HDMI 输出互斥
-- 当前版本 `1.2.8`：修复音源准备失败后状态不退出、输出恢复后的完成通知及部分 DSD 播放问题
+- 支持 Dolby（AC3、E-AC3、TrueHD）与 DTS-HD HDMI 透传输出
+- 当前版本 `1.2.9`：支持 Dolby 与 DTS-HD HDMI 透传，优化 EOF 排空、失败传播与声道布局初始化
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.8")
+implementation("io.github.qytech:audioplayer:1.2.9")
 ```
 
 [HDMI ARC 接入指南](docs/AudioPlayer/HDMI-ARC-INTEGRATION.md) · [Kotlin Demo](docs/AudioPlayer/HDMI-ARC-DEMO.md)
@@ -156,7 +157,7 @@ Android 平台外部 USB 光驱控制库。支持 CD 播放（基于 Native Oboe
 - ✅ 元数据支持：支持计算 DiscID（FreeDB/GnuDB 标准）
 - ✅ 混合模式支持：完美处理 Mixed Mode CD（数据 + 音频）
 - ✅ 抓轨功能：支持将 CD 音频轨道提取保存为 WAV 文件
-- 当前版本 `0.2.9`：音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.8` 配套使用
+- 当前版本 `0.2.9`：音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.9` 配套使用
 
 ```kotlin
 implementation("io.github.qytech:cdrom:0.2.9")
@@ -186,7 +187,7 @@ Qobuz Connect Android SDK，基于 Oboe 的音频输出、设备发现与播放�
 implementation("io.github.qytech:qobuz-connect:0.0.4")
 ```
 
-同一应用集成多个音频组件时，推荐配套使用 AudioPlayer `1.2.8`、Cdrom `0.2.9`、Qobuz Connect `0.0.4`。不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。
+同一应用集成多个音频组件时，推荐配套使用 AudioPlayer `1.2.9`、Cdrom `0.2.9`、Qobuz Connect `0.0.4`。不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。
 
 ---
 
@@ -262,4 +263,4 @@ Android 多线程本地与外置存储媒体扫描引擎，支持海量曲库流
 
 ---
 
-> 仓库最后更新：2026-10-23
+> 仓库最后更新：2026-10-27
