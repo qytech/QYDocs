@@ -4,7 +4,7 @@
 
 QYAirPlay2 为 Android 设备提供局域网 AirPlay 音频接收与播放、歌曲信息与封面，以及对手机的播放控制。接入入口为 `com.qytech.airplay.QYAirPlay2`。
 
-> 当前版本：`0.1.1`（2026-10-23）。版本变化见[更新日志](CHANGELOG.md)。
+> 当前版本：`0.1.3`（2026-11-10）。版本变化见[更新日志](CHANGELOG.md)。
 
 ## 1. 环境与依赖
 
@@ -15,7 +15,7 @@ QYAirPlay2 为 Android 设备提供局域网 AirPlay 音频接收与播放、歌
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qyairplay2:0.1.1")
+    implementation("io.github.qytech:qyairplay2:0.1.3")
 }
 ```
 
@@ -128,6 +128,16 @@ QYAirPlay2.stop()
 
 只需断开当前手机、保留接收功能时，调用 `QYAirPlay2.disconnect()`。手机可重新选择设备连接；通过 `state.isConnected` 或 `onDisconnected()` 观察断开结果，失败信息见 `state.lastError`。
 
+切换到其他音源前，可使用带完成回调的重载等待会话与 `AudioTrack` 实际释放：
+
+```kotlin
+QYAirPlay2.disconnect { released ->
+    if (released) {
+        // 输出已释放，可安全启动下一音源
+    }
+}
+```
+
 ### 与已有播放器交接
 
 宿主已有本地播放器时，可使用带 `onBeforePlayback` 的 `start()` 重载，在 AirPlay 开始输出前释放原播放器占用的音频输出。旧版 `start()` 调用方式保留；不需要交接时，可省略此回调或传入 `null`。
@@ -226,7 +236,7 @@ QYAirPlay2.stop()
 | `seekTo(30_000L)` | 跳转到 30 秒，参数单位为毫秒 |
 | `setVolumePercent(60f)` | 音量百分比，范围 0..100 |
 | `setVolume(-15.0)` | 音量分贝值，范围 -144.0..0.0 dB |
-| `disconnect()` | 断开当前手机连接，保持接收与设备发现 |
+| `disconnect()` / `disconnect { ... }` | 断开当前手机连接（可选等待输出释放完成），保持接收与设备发现 |
 | `reannounce()` | 重新广播设备，供手机发现 |
 
 以上方法通过 `QYAirPlay2` 调用。百分比 `0f` 或 `-144.0 dB` 表示静音；`0.0 dB` 表示无衰减。
@@ -239,10 +249,11 @@ QYAirPlay2.stop()
 
 ## 6. 升级与使用说明
 
+- `0.1.3` 新增 `disconnect(complete: (Boolean) -> Unit)`，等待会话和 `AudioTrack` 输出释放后再继续切换其他音源；原有 `disconnect()` 与 `start()` 用法不变。
 - `0.1.1` 改善首次播放、切歌、重连及播放恢复；网络抖动时可能短暂停顿并恢复，实际响应取决于发送端、网络与设备。
 - 从 `0.0.1-snapshot` 升级后，重新编译所有依赖 SDK 的模块。现有 `QYAirPlay2` 常用方法和双参数音量回调可继续使用。
 - 多台手机使用同一设备时，后发起播放的手机会接管当前播放；仅浏览设备不会中断音乐。
 - 关闭功能时停止接收端并移除监听，宿主自行创建的协程也应按其生命周期取消。
-- [下载 API 文档（javadoc.jar）](https://repo.maven.apache.org/maven2/io/github/qytech/qyairplay2/0.1.1/qyairplay2-0.1.1-javadoc.jar)。解压后打开 `index.html` 查看公开 API、参数和状态说明；版本变化见[更新日志](CHANGELOG.md)。
+- [下载 API 文档（javadoc.jar）](https://repo.maven.apache.org/maven2/io/github/qytech/qyairplay2/0.1.3/qyairplay2-0.1.3-javadoc.jar)。解压后打开 `index.html` 查看公开 API、参数和状态说明；版本变化见[更新日志](CHANGELOG.md)。
 
 返回[文档首页](../../README.md)。

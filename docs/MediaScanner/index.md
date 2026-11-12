@@ -18,7 +18,7 @@ QYMediaScanner 是专为 Android HiFi 播放设备设计的高性能多线程媒
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qymediascanner:0.1.0")
+    implementation("io.github.qytech:qymediascanner:0.1.1")
 }
 ```
 
@@ -47,6 +47,10 @@ class MediaLibraryViewModel : ViewModel() {
             val report = mediaScanner.scanDirectoryStreaming(
                 directoryPath = directoryPath,
                 batchSize = 300, // 推荐每批 300 首，与数据库事务深度契合
+                onDiscoveryProgress = { discoveredFiles, currentDirectory ->
+                    // 可选（0.1.1+）：在文件总数确认前实时更新已发现文件数与当前目录
+                    println("已发现: $discoveredFiles 个, 当前目录: $currentDirectory")
+                },
                 onDiscovery = { totalFiles ->
                     // 1. 发现文件总数回调：可用于初始化进度条最大值
                     println("在目录中发现音频文件: $totalFiles 个")
@@ -127,7 +131,7 @@ val report = scanner.scanDirectoryStreaming(
 
 | 方法 | 类型 | 说明 |
 |---|---|---|
-| `scanDirectoryStreaming(...)` | 挂起函数 | 流式批量扫描指定目录，支持背压与增量比对快照，返回 `MediaScanReport` |
+| `scanDirectoryStreaming(...)` | 挂起函数 | 流式批量扫描指定目录，支持发现阶段进度回调（`onDiscoveryProgress`）、背压与增量比对快照，返回 `MediaScanReport` |
 | `scanDirectory(directoryPath, onProgress)` | 挂起函数 | 单次全量扫描指定目录，返回 `(MediaScanReport, List<CanonicalScannedTrack>)` |
 | `cancel()` | 普通方法 | 立即原子取消当前正在执行的扫描任务 |
 | `encodeVersionCache(versions, resourceVersions)` | 伴生工具 | 将文件修改时间字典编码为高效版本快照，用于增量复扫 |

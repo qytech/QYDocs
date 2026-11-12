@@ -1,5 +1,10 @@
 # QYMediaScanner 更新日志
 
+## v0.1.1 - 2026-11-10
+
+- `QYMediaScanner.scanDirectoryStreaming(...)` 新增可选 `onDiscoveryProgress(discoveredFiles, currentDirectory)` 挂起回调，用于在总数确认前实时汇报发现进度，并同步更新内置 `libqy_mediascanner.so`（Kotlin 与内置 `.so` 须配套发布，不混用旧版）。
+- 优化 `encodeVersionCache(...)` 缓冲区编码，减少临时数组分配。
+
 ## 0.1.0 - 2026-09-22
 
 ### 发布

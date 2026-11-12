@@ -5,10 +5,10 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 ## 依赖
 
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.9")
+implementation("io.github.qytech:audioplayer:1.2.10")
 ```
 
-AudioPlayer `1.2.9` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.9`、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
+AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.11`（`0.2.9`–`0.2.11` 均基于 Oboe 1.11）、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
 
 ## 功能特性
 
@@ -63,6 +63,12 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.10（2026-11-11）
+
+- 移除 `io.github.qytech:core` 依赖，并补充 Maven 发布所需的占位 `sources` / `javadoc` 制品。
+- `CharsetNativeHelper` 增加 macOS 本机单元测试动态库加载支持；Android 公开接口及 Oboe `1.11` 兼容要求与 `1.2.9` 保持一致。
+- Maven 坐标：`io.github.qytech:audioplayer:1.2.10`。
 
 ### v1.2.9（2026-10-27）
 

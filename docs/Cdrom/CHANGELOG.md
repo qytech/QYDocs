@@ -2,6 +2,20 @@
 
 本文档记录 QYTech CD-ROM (`io.github.qytech:cdrom`) 驱动与服务库的所有重要版本更新与变更。
 
+## v0.2.11（2026-11-11）
+
+- 播放读盘路径新增 `16 → 10 → 1` 扇区预读缓存，严格限制在真实 lead-out 内，并在重读与 seek 时失效。
+- 回移有界解码恢复策略：在已有有效输出后，短暂损坏或无法解码片段在连续 100 ms 内按帧时长补齐静音继续，首帧未知格式、连续超限与真实 IO 错误仍报错停止。
+- 新增 `CdPlayer.prepare(trackIndex, positionMs, durationMs)`，支持在起播前定位恢复播放位置。
+- 优化 Android 12+ 短尾帧排空（5 s 有界等待并在排空期临时降启动阈值）、stop/seek 取消检查以及 HDMI DTS 同载体声道变化复用。
+
+## v0.2.10（2026-11-10）
+
+- `CdPlayer` 新增可选构造参数 `(outputDevice, outputCapabilities)` 与 `CdOutputCapabilities` 模型；保留无参 `CdPlayer()` 兼容。
+- 改进 DTS 音频输出协商顺序：优先 DTS 透传，不支持或打开失败时尝试多声道 PCM，再回退双声道 PCM。
+- 新增 `CdPlayer.release(onComplete: (Boolean) -> Unit)`，在 Native 读盘与音频输出实际释放后回调；原有 `release()` 保持兼容。
+- 保持 Oboe `1.11.0` 严格版本约束。
+
 ## v0.2.9（2026-10-20）
 
 - 将音频输出依赖升级至 Oboe 1.11，与 AudioPlayer `1.2.7` 配套使用。

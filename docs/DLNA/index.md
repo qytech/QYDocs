@@ -8,7 +8,7 @@ Android DLNA 媒体渲染器（DMR），支持 QPlay 协议，实现手机 - 设
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:dlna:0.2.9")
+    implementation("io.github.qytech:dlna:0.2.10")
 }
 ```
 
@@ -24,6 +24,10 @@ dependencies {
 ---
 
 ## 更新日志
+
+### v0.2.10（2026-11-11）
+
+- 维护性发布：移除 `io.github.qytech:core` 依赖，改为模块内置媒体文件类型识别与本机 IPv4 地址获取工具；既有 `com.qytech.jupnp` 对外接口不变，新项目仍请迁移至 [QYDlna](../QYDlna/)。
 
 ### v0.2.9（2026-08-12）
 

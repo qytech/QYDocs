@@ -8,7 +8,7 @@
 
 - `groupId`: `io.github.qytech`
 - `artifactId`: `qobuz-connect`
-- `version`: `0.0.2`
+- `version`: `0.0.4`
 
 ## 接入前提
 
@@ -33,7 +33,7 @@
 接入依赖：
 
 ```kotlin
-implementation("io.github.qytech:qobuz-connect:0.0.2")
+implementation("io.github.qytech:qobuz-connect:0.0.4")
 ```
 
 ## 必要权限

@@ -2,18 +2,25 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/roon.svg)](https://central.sonatype.com/artifact/io.github.qytech/roon)
 
-当前版本：`0.1.5`，提供 Roon 音频接收、播放控制、设备音频能力查询与宿主音源切换接口。
+当前版本：`0.1.6`，提供 Roon 音频接收、播放控制、设备音频能力查询与宿主音源切换接口。
 
 ## 依赖与运行环境
 
 ```kotlin
-implementation("io.github.qytech:roon:0.1.5")
+implementation("io.github.qytech:roon:0.1.6")
 ```
 
 - Android API 29+，仅提供 `arm64-v8a`；宿主需包含 SDK 的 Native 库。
-- 保留 SDK 清单声明的 `RoonService` 独立进程 `:roon_process`，不要合并到宿主主进程或改名。`0.1.5` 会在关闭端点时检查该进程名并退出专用进程。
+- 保留 SDK 清单声明的 `RoonService` 独立进程 `:roon_process`，不要合并到宿主主进程或改名。关闭端点时会检查该进程名并退出专用进程。
 
 ## 升级说明
+
+### 从 0.1.5 升级到 0.1.6
+
+`0.1.6` 保留现有 `RoonServiceManager`、`IRoonCallback` 和 `IRoonOutputCallback` 公共接口，升级后行为如下：
+
+- **回调连接恢复**：`IRoonCallback` 改为单一连接托管并监听 Binder 死亡；发送失败时仅清理当前失效订阅而不向上抛出 `RemoteException`，活跃播放与其它回调不受影响。宿主恢复或重建后需重新调用 `registerCallback(...)` / `registerOutputCallback(...)` 恢复订阅。
+- **输出握手重连**：`RoonOutputHandshake` 在单次 5 秒截止时间内，支持在宿主重连或替换时等待并重发输出准备请求；宿主显式拒绝、注销、停止或切源接管仍立即取消准备。
 
 ### 从 0.1.4 升级到 0.1.5
 
@@ -92,6 +99,12 @@ RoonServiceManager.init(
 - Maven 服务端发布状态已确认；发布记录中公开仓库下载受限，远端 AAR 下载后的哈希复核仍待完成。
 
 ## 更新日志
+
+### v0.1.6（2026-11-11）
+
+- 统一 `IRoonCallback` 单连接托管并监听 Binder 死亡，通过底层 Binder 身份安全注销订阅；发送遇到 `RemoteException` 时仅清理当前失效订阅，不再传播到 JNI 回调线程。
+- 改进音频输出准备握手（`RoonOutputHandshake`）：在单次 5 秒截止时间内支持宿主重连或替换后继续完成准备；显式拒绝、注销、停止/释放或切源接管仍取消请求。
+- 保留原有 `RoonServiceManager`、回调接口与独立 `:roon_process` 使用方式。
 
 ### v0.1.5（2026-11-09）
 

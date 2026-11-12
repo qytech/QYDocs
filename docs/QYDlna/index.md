@@ -6,7 +6,7 @@
 
 QYDlna 为 Android 提供局域网 DLNA/UPnP 接收能力：MediaRenderer（DMR）用于接收播放控制，MediaServer（DMS）用于浏览宿主提供的本地音乐目录。客户只需要使用 `com.qytech.dlna.QYDLNA`。
 
-> 当前版本：`0.1.0`。本次改进播放控制、换曲进度与曲目信息同步，详见[更新日志](CHANGELOG.md)。
+> 当前版本：`0.1.1`。新增播放前输出所有权回调与输出释放接口，详见[更新日志](CHANGELOG.md)。
 
 ## 1. 环境与依赖
 
@@ -21,7 +21,7 @@ QYDlna 为 Android 提供局域网 DLNA/UPnP 接收能力：MediaRenderer（DMR�
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:qydlna:0.1.0")
+    implementation("io.github.qytech:qydlna:0.1.1")
 }
 ```
 
@@ -112,7 +112,27 @@ QYDLNA.setMute(false)
 - 在启动前传入 `QPlayConfig(psk, mid, did)` 可启用 QPlay。PSK 不要写入日志、崩溃报告或埋点。
 - 使用 `QYDLNA.qplayState` 和 `QYDLNA.events` 观察 QPlay 鉴权、队列、音质和歌词事件。
 - 需要自定义设备描述时，设置 `description` 或 `mediaServerDescription`。
-- 不使用 Flow 时，可通过 `QYDLNA.setCallback(...)` 接收播放事件。
+- 不使用 Flow 时，可通过 `QYDLNA.setCallback(...)` 接收播放事件；需要与本地或其他音源互切时，实现 `DlnaRendererCallback.onBeforePlayback` 并在切出前调用 `QYDLNA.releasePlaybackOutput`：
+
+```kotlin
+QYDLNA.setCallback(object : DlnaRendererCallback {
+    override fun onBeforePlayback(isCurrent: () -> Boolean, complete: (Boolean) -> Unit) {
+        // 调度到宿主串行任务释放原音频输出，确认前检查 isCurrent()
+        hostScope.launch(Dispatchers.IO) {
+            if (!isCurrent()) return@launch
+            val ready = releasePreviousOutput()
+            if (isCurrent()) complete(ready)
+        }
+    }
+})
+
+// 从 DLNA 切向其他音源时保留网络发现与队列，仅等待音频输出释放
+QYDLNA.releasePlaybackOutput { released ->
+    if (released) {
+        // 可安全启动下一音源
+    }
+}
+```
 
 ## 5. 诊断、验收与回退
 

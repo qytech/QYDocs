@@ -20,11 +20,11 @@
 ```kotlin
 dependencies {
     // 请使用最新版本
-    implementation("io.github.qytech:cdrom:0.2.9")
+    implementation("io.github.qytech:cdrom:0.2.11")
 }
 ```
 
-Cdrom `0.2.9` 使用 Oboe 1.11，与 AudioPlayer `1.2.9`、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的旧版音频组件。
+Cdrom `0.2.11`（与 `0.2.9`、`0.2.10` 同属 Oboe `1.11.0` 系列）请与 AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。若新项目采用固件租约与 Rust/FFmpeg 链路（不依赖 Oboe），请参见 [QYCdrom](../QYCdrom/)。
 
 
 
@@ -81,8 +81,16 @@ AAR 库已内置并自动合并以下权限（宿主应用无需手动在 Manife
 // 1. 硬件控制器：负责状态监听、TOC 获取、抓轨、进出仓
 private val cdromController = CdromController(context)
 
-// 2. 播放器：负责音频播放控制 (Native Oboe)
-private val cdPlayer = CdPlayer()
+// 2. 播放器：负责音频播放控制（无参构造兼容旧版；也可传入输出设备与能力查询）
+private val cdPlayer = CdPlayer(
+    outputDevice = { selectedAudioDevice },
+    outputCapabilities = { device ->
+        CdOutputCapabilities(
+            maxPcmChannelsBySampleRate = mapOf(44100 to 2, 48000 to 6),
+            maxDtsChannelsBySampleRate = mapOf(44100 to 6),
+        )
+    },
+)
 
 // 初始化逻辑
 fun init() {
@@ -138,7 +146,7 @@ fun init() {
 ```Kotlin
 // 播放指定轨道 (trackIndex 从 1 开始)
 fun play(trackIndex: Int) {
-    // 准备并播放
+    // 准备并播放；恢复断点可使用三参重载 prepare(trackIndex, positionMs, durationMs)
     cdPlayer.prepare(trackIndex)
     cdPlayer.play()
 }
@@ -260,7 +268,12 @@ fun release() {
     cdromController.release()
     
     cdPlayer.removeListener(playerListener)
-    cdPlayer.release()
+    // 无参 release() 兼容保留；切源或移交输出时建议等待异步释放确认
+    cdPlayer.release { released ->
+        if (released) {
+            // 原生读盘与音频输出已停止，可安全切换到其他音源
+        }
+    }
 }
 ```
 
@@ -275,6 +288,17 @@ fun release() {
 ## 更新日志 (Changelog)
 
 > 完整独立变更历史请参阅专属更新日志文档：**[CHANGELOG.md](./CHANGELOG.md)**
+
+### v0.2.11（2026-11-11）
+
+- 播放读盘改用 `16 → 10 → 1` 扇区预读缓存（受限于光盘 lead-out，重读或 seek 时自动失效），降低连续读盘开销。
+- 新增已有有效输出后连续最长 100 ms 的解码失败静音补齐与有限重读（首帧未知格式、连续超限与真实 IO 错误仍失败）；新增三参 `prepare(trackIndex, positionMs, durationMs)` 恢复定位。
+- 优化 Android 12+ 短尾帧排空（5 s 有界等待并临时调整启动阈值）及 HDMI DTS 同载体布局变化复用，保留原有 Oboe `1.11.0` 约束。
+
+### v0.2.10（2026-11-10）
+
+- 新增 `CdPlayer(outputDevice, outputCapabilities)` 可选构造参数与 `CdOutputCapabilities`，支持按输出设备能力依次尝试 DTS 透传、多声道 PCM 与双声道 PCM。
+- 新增 `CdPlayer.release(onComplete)` 异步释放确认回调，在 Native 读盘与输出停止后通知完成；保留无参 `CdPlayer()` 与 `release()` 兼容。
 
 ### v0.2.9（2026-10-20）
 
