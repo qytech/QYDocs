@@ -19,7 +19,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/QYCdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qycdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYCdrom](docs/QYCdrom/) · [Changelog](docs/QYCdrom/CHANGELOG.md) | 基于 Rust 与系统租约的 CD-ROM 驱动与播放 SDK（不依赖 Oboe），支持 DTS 透传回退与原子抓轨 | 2026-11-11 |
 | <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，0.1.11 起移除 `libdsm`/`core` 依赖并采用 JCIFS NetBIOS 发现，保留卸载前协调 | 2026-11-11 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-11 |
-| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon Raat 协议支持，提供 PCM/DSD 输出、MQA 核心解码、动态信号路径、回调恢复与输出握手 | 2026-11-11 |
+| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-16 |
 | <a href="docs/QYMultiroom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-11 |
 | <a href="docs/ScreenMirror/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/screenmirror.svg" alt="Maven Central" style="vertical-align: middle;"></a> [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏运行时，支持 MediaProjection 授权、镜像/扩展虚拟屏、H.264 媒体发布与触摸注入 | 2026-11-11 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
@@ -246,10 +246,10 @@ Roon Raat 协议支持，提供 PCM/DSD 音频串流、MQA 核心解码、动态
 - ✅ 双向硬件音量联动与静音控制
 - ✅ 封面与多语言元数据实时同步
 - ✅ 网络恢复后的服务重连；恢复播放需由 Roon 端明确发起
-- 当前版本 `0.1.6`：统一 `IRoonCallback` 连接托管并隔离失效订阅异常，改进输出准备握手以支持 5 秒窗口内宿主重连，详见 [Roon 接入说明](docs/Roon/)。
+- 当前版本 `0.1.8`：在以太网 / Wi-Fi 的 IPv4 地址变化时重建端点，修复双网场景的时钟回复接口与源地址选择；恢复后仍需由 Roon 端明确发起播放，详见 [Roon 接入说明](docs/Roon/)。
 
 ```kotlin
-implementation("io.github.qytech:roon:0.1.6")
+implementation("io.github.qytech:roon:0.1.8")
 ```
 
 ---
@@ -352,4 +352,4 @@ implementation("io.github.qytech:qymusicindex:0.0.1-snapshot")
 
 ---
 
-> 仓库最后更新：2026-11-12
+> 仓库最后更新：2026-11-16
