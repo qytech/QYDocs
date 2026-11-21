@@ -4,12 +4,28 @@ Android 网络存储管理组件，提供 SMB 与 NFS 的发现、挂载、连�
 
 ## 依赖与权限
 
+先按 [HiFiPlayer SDK 接入](../HiFiPlayer/index.md) 添加 QYTech Maven 仓库。
+
 ```kotlin
-implementation("io.github.qytech:networkstorage:0.1.11")
+implementation("io.github.qytech:networkstorage:0.1.12")
 ```
 
 - `minSdk = 29`、Java 17，支持 SMB 1.0/2.x/3.x（含匿名免密访问与协议降级）及 NFS 发现与挂载。
 - `0.1.11` 起已移除 `io.github.qytech:libdsm` 与 `io.github.qytech:core` 依赖，不再包含 Native `libdsm` 动态库；AAR 清单内置 `INTERNET`、`ACCESS_NETWORK_STATE`、`CHANGE_WIFI_MULTICAST_STATE` 权限并自动合并到宿主应用。
+
+## 普通 Android 应用
+
+固件宿主可以继续使用原有挂载接口。普通应用可在初始化 SMB/NFS 管理器前注册进程级的 `UserSpaceMounts` 实现。
+
+```kotlin
+import com.qytech.networkstorage.UserSpaceMounts
+
+fun configureNetworkStorage(backend: UserSpaceMounts) {
+    UserSpaceMounts.install(backend)
+}
+```
+
+宿主后端实现 `connect(config)`、`disconnect(path)` 和 `volumes(protocol)`，负责共享连接及其文件访问。后续可复用管理器的连接、断开和卷列表接口。实现网络 I/O 时使用后台线程，断开连接时释放文件句柄和网络会话。
 
 ## 使用方法与卸载前协调
 
@@ -43,6 +59,11 @@ nfsManager.release()
 `playbackStorageCoordinator.stopAndClose(...)` 代表接入方自己的播放资源协调实现，不属于 NetworkStorage SDK。回调返回 `true` 表示清理已完成；驱动最多等待 1 秒，随后继续执行卸载。未传入协调器时使用 `StorageRemovalCoordinator.NONE`，行为与旧版本一致。
 
 ## 更新日志
+
+### v0.1.12（2026-11-21）
+
+- 增加 SMB/NFS 用户态挂载后端注册接口，普通应用可复用管理器的连接、断开和卷列表操作。
+- 按实际后端复核掉线状态，SMB 登录凭据仅在同一服务器内复用。
 
 ### v0.1.11（2026-11-11）
 
@@ -92,7 +113,4 @@ nfsManager.release()
 
 1. 修复Samba v1\.0 的服务器挂载失败问题 ，需要固件打下面补丁
 
-[samba\-version1\.0\-mount\-issue\.7z](图片和附件/samba-version1.0-mount-issue.7z)
-
-
-
+[samba\-version1\.0\-mount\-issue\.7z](https://github.com/qytech/QYDocs/blob/main/docs/NetworkStorage/%E5%9B%BE%E7%89%87%E5%92%8C%E9%99%84%E4%BB%B6/samba-version1.0-mount-issue.7z)

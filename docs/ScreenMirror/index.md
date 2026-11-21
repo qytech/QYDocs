@@ -1,7 +1,7 @@
 # ScreenMirror Android SDK
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/screenmirror.svg)](https://central.sonatype.com/artifact/io.github.qytech/screenmirror)
-[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
+[QYTech Maven 发布仓库](https://github.com/qytech/maven-releases)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
 
 ScreenMirror（`io.github.qytech:screenmirror`）是设备端投屏运行时 SDK，负责 `MediaProjection` 授权、镜像或扩展虚拟屏管理、H.264 低延迟视频流发布以及远程单指触摸注入。
 
@@ -9,9 +9,11 @@ ScreenMirror（`io.github.qytech:screenmirror`）是设备端投屏运行时 SDK
 
 ## 依赖与运行环境
 
+先按 [HiFiPlayer SDK 接入](../HiFiPlayer/index.md) 添加 QYTech Maven 仓库。
+
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:screenmirror:0.1.0")
+    implementation("io.github.qytech:screenmirror:0.1.1")
 }
 ```
 
@@ -72,6 +74,7 @@ val response = controller.start(
         resolution = RemoteScreenResolution.NATIVE,
         frameRate = RemoteScreenFrameRate.FPS60,
         mode = RemoteScreenMode.EXTENDED,
+        aspectRatio = 16f / 9f,
     ),
 )
 
@@ -84,6 +87,8 @@ controller.injectPointer(authToken = sessionToken, event = pointerEvent)
 // 结束投屏并释放虚拟屏、编码器及前台服务（仅当前 ownerToken 生效）
 controller.stop(authToken = sessionToken)
 ```
+
+扩展屏可用 `aspectRatio` 传入客户端视图宽度与高度的比值。省略该参数时沿用原有尺寸选择。
 
 ## 更新日志
 

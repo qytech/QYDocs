@@ -1,6 +1,6 @@
 # HDMI ARC Kotlin Demo
 
-更新日期：2026-11-11。配套阅读：[接入指南](HDMI-ARC-INTEGRATION.md)。
+更新日期：2026-11-21。配套阅读：[接入指南](HDMI-ARC-INTEGRATION.md)。
 
 本示例在前台页面依次播放、暂停、恢复、停止后重启，退出或失败时释放。复制下面两个完整文件，再在页面注册一次即可运行。
 
@@ -13,11 +13,11 @@
 
 ## 2. 添加依赖
 
-工程配置 Maven Central；应用模块添加以下依赖。已有兼容的协程和 Lifecycle 版本时复用现有配置。
+先按 [HiFiPlayer SDK 接入](../HiFiPlayer/index.md) 配置仓库，再为应用模块添加以下依赖。已有兼容的协程和 Lifecycle 版本时复用现有配置。
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:audioplayer:1.2.10")
+    implementation("io.github.qytech:audioplayer:1.2.12")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
 }

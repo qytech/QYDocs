@@ -4,11 +4,13 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 
 ## 依赖
 
+先按 [HiFiPlayer SDK 接入](../HiFiPlayer/index.md) 添加 QYTech Maven 仓库。
+
 ```kotlin
-implementation("io.github.qytech:audioplayer:1.2.10")
+implementation("io.github.qytech:audioplayer:1.2.12")
 ```
 
-AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.11`（`0.2.9`–`0.2.11` 均基于 Oboe 1.11）、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
+AudioPlayer `1.2.12` 使用 Oboe 1.11。同一应用集成 Cdrom 或 Qobuz Connect 时，请配套使用 Cdrom `0.2.11`（`0.2.9`–`0.2.11` 均基于 Oboe 1.11）、Qobuz Connect `0.0.4`；不要与基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3` 混用。
 
 ## 功能特性
 
@@ -25,6 +27,25 @@ AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）使用 Oboe 1.11。同一应用集�
 - ✅ 完善的资源释放与状态管理，支持暂停、恢复、切歌及设备状态变化
 - 支持已适配设备与固件上的 HDMI ARC 输入播放，应用使用无参入口 `HdmiArcPlayer()`
 - ✅ 支持 Dolby（AC3 / E-AC3 / TrueHD）与 DTS-HD HDMI 透传（Passthrough），经由 IEC 61937 / MAT 封包传输
+
+## USB 独占输出 Native DSD64
+
+在支持 USB Host 的 Android 设备上，连接山灵 UA4。在用户选择 USB 独占输出时从协程请求本次连接的权限，将返回的设备名交给本地 Native 播放器。
+
+```kotlin
+import android.content.Context
+import com.qytech.audioplayer.player.BaseNativePlayer
+import com.qytech.audioplayer.player.UsbNativeDsd
+import kotlinx.coroutines.Dispatchers
+
+suspend fun selectUsbDsd(context: Context, player: BaseNativePlayer): Boolean {
+    val device = UsbNativeDsd.requestDevice(context, Dispatchers.IO) ?: return false
+    player.setUsbNativeDsdDevice(device)
+    return true
+}
+```
+
+在准备双声道 DSD64 曲目前配置播放器并选择 Native DSD。用户取消授权时保留现有输出；拔出后需重新授权。退出独占输出时调用 `setUsbNativeDsdDevice(null)`，结束播放时按播放器生命周期停止并释放资源。
 
 ## HDMI ARC 输入接入
 
@@ -63,6 +84,15 @@ audioPlayer.forceRelease()
 ---
 
 ## 更新日志
+
+### v1.2.12（2026-11-21）
+
+- 增加 UA4 双声道 USB Native DSD64 输出，支持暂停、跳转和停止时回收 USB 资源。
+- 支持通过持久读取授权或宿主私有文档提供方的描述符播放文件，修复仅提供声道数时的 WavPack 多声道识别。
+
+### v1.2.11（2026-11-16）
+
+- 修复 CUE 分轨无缝边界和播放错误时的完成回调竞态。
 
 ### v1.2.10（2026-11-11）
 
