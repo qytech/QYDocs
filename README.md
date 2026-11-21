@@ -8,7 +8,8 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| <a href="docs/AudioPlayer/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AudioPlayer](docs/AudioPlayer/) | Android 音频播放框架，支持 DSD、MQA、CUE、SACD ISO 相邻曲目无缝播放、HDMI ARC 输入及 Dolby / DTS 多声道透传 | 2026-11-11 |
+| [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、投屏 SDK 坐标 | 2026-11-21 |
+| [AudioPlayer](docs/AudioPlayer/) | 音频播放、USB Native DSD64、HDMI ARC 输入与多声道透传 | 2026-11-21 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS、QPlay 及宿主播放前输出交接 | 2026-11-11 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器（0.2.10 移除 `core` 依赖，新项目请使用 QYDlna） | 2026-11-11 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay（Deprecated）](docs/Airplay/) | 旧版 AirPlay 接收与会话接入，新项目推荐使用 QYAirPlay2 | 2026-09-30 |
@@ -17,11 +18,11 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/QYSpectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyspectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYSpectrum](docs/QYSpectrum/) · [Changelog](docs/QYSpectrum/CHANGELOG.md) | 基于 ARM NEON SIMD 与 Rust JNI 的实时频谱与弹道 VU 表引擎（`0.0.1-snapshot` 预发布） | 2026-09-16 |
 | <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库（C++/Oboe），支持 CD 播放、DTS 能力协商与有界恢复、原子抓轨及硬件控制 | 2026-11-11 |
 | <a href="docs/QYCdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qycdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYCdrom](docs/QYCdrom/) · [Changelog](docs/QYCdrom/CHANGELOG.md) | 基于 Rust 与系统租约的 CD-ROM 驱动与播放 SDK（不依赖 Oboe），支持 DTS 透传回退与原子抓轨 | 2026-11-11 |
-| <a href="docs/NetworkStorage/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg" alt="Maven Central" style="vertical-align: middle;"></a> [NetworkStorage](docs/NetworkStorage/) | 网络存储（SMB/NFS/WebDAV）管理，0.1.11 起移除 `libdsm`/`core` 依赖并采用 JCIFS NetBIOS 发现，保留卸载前协调 | 2026-11-11 |
+| [NetworkStorage](docs/NetworkStorage/) | SMB/NFS 发现、连接、卸载协调和普通 Android 应用的用户态后端 | 2026-11-21 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-11 |
 | <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-16 |
 | <a href="docs/QYMultiroom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-11 |
-| <a href="docs/ScreenMirror/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/screenmirror.svg" alt="Maven Central" style="vertical-align: middle;"></a> [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏运行时，支持 MediaProjection 授权、镜像/扩展虚拟屏、H.264 媒体发布与触摸注入 | 2026-11-11 |
+| [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏、客户端宽高比和触摸注入 | 2026-11-21 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
 | <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持发现阶段进度回调、增量秒级复扫与流式批量持久化分发 | 2026-11-11 |
@@ -31,15 +32,25 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 ## 快速链接
 
-[文档中心](https://central.sonatype.com/namespace/io.github.qytech) · 
+[SDK 发布仓库](https://github.com/qytech/maven-releases) ·
 [Maven Central](https://central.sonatype.com/) · 
 [GitHub Pages](https://qytech.github.io/QYDocs/)
+
+[配置 HiFiPlayer SDK Maven 仓库](docs/HiFiPlayer/) 后，按需添加依赖。
+
+<!-- qydocs:dependencies -->
+```kotlin
+dependencies {
+    implementation("io.github.qytech:audioplayer:1.2.12")
+    implementation("io.github.qytech:networkstorage:0.1.12")
+    implementation("io.github.qytech:screenmirror:0.1.1")
+}
+```
+<!-- /qydocs:dependencies -->
 
 ---
 
 ### AudioPlayer
-
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/audioplayer.svg)](https://central.sonatype.com/artifact/io.github.qytech/audioplayer)
 
 Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网盘 / WebDAV 等场景。
 
@@ -54,11 +65,9 @@ Android 高保真音频播放组件，支持 DSD、MQA、SACD、CUE 分轨、网
 - ✅ USB / DOP / D2P 硬件输出
 - 已适配设备与固件上的 HDMI ARC 输入播放，使用无参入口 `HdmiArcPlayer()`；与用户选择的 HDMI 输出互斥
 - 支持 Dolby（AC3、E-AC3、TrueHD）与 DTS-HD HDMI 透传输出
-- 当前版本 `1.2.10`：移除 `io.github.qytech:core` 依赖并完善 Maven 发布占位制品，Android 接口及 Oboe `1.11` 兼容要求与 `1.2.9` 一致
+- 音频播放、USB Native DSD64、HDMI ARC 输入与多声道透传。
 
-```kotlin
-implementation("io.github.qytech:audioplayer:1.2.10")
-```
+[依赖版本与用法](docs/AudioPlayer/)
 
 [HDMI ARC 接入指南](docs/AudioPlayer/HDMI-ARC-INTEGRATION.md) · [Kotlin Demo](docs/AudioPlayer/HDMI-ARC-DEMO.md)
 
@@ -177,7 +186,7 @@ Android 平台外部 USB 光驱控制库。支持 CD 播放（基于 Native Oboe
 - ✅ 元数据支持：支持计算 DiscID（FreeDB/GnuDB 标准）
 - ✅ 混合模式支持：完美处理 Mixed Mode CD（数据 + 音频）
 - ✅ 抓轨功能：支持将 CD 音频轨道提取保存为 WAV 文件
-- 当前版本 `0.2.11`：支持 `CdOutputCapabilities` 输出协商、异步 `release(onComplete)`、`16 → 10 → 1` 扇区读盘缓存与 100 ms 有界解码恢复；使用 Oboe 1.11，与 AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）配套，详见[接入说明](docs/Cdrom/)和[更新日志](docs/Cdrom/CHANGELOG.md)
+- 当前版本 `0.2.11`：支持 `CdOutputCapabilities` 输出协商、异步 `release(onComplete)`、`16 → 10 → 1` 扇区读盘缓存与 100 ms 有界解码恢复；使用 Oboe 1.11，与同样基于 Oboe 1.11 的 [AudioPlayer](docs/AudioPlayer/) 配套，详见[接入说明](docs/Cdrom/)和[更新日志](docs/Cdrom/CHANGELOG.md)
 
 ```kotlin
 implementation("io.github.qytech:cdrom:0.2.11")
@@ -201,15 +210,11 @@ implementation("io.github.qytech:qycdrom:0.0.3")
 
 ### NetworkStorage
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/networkstorage.svg)](https://central.sonatype.com/artifact/io.github.qytech/networkstorage)
-
 网络存储管理，提供 SMB / NFS / WebDAV 等协议的设备发现、目录浏览与挂载管理能力。全面兼容现代与老旧 NAS/Samba 设备的匿名访问与协议自适应降级，并支持在卸载前协调播放器释放文件句柄。
 
-- 当前版本 `0.1.11`：移除 `core` 与 `libdsm` 依赖并改用 JCIFS NetBIOS 发现，保留 mDNS 会话隔离与卸载前协调接口，详见[接入说明](docs/NetworkStorage/)
+- SMB/NFS 发现、连接、卸载协调和普通 Android 应用的用户态后端。
 
-```kotlin
-implementation("io.github.qytech:networkstorage:0.1.11")
-```
+[依赖版本与用法](docs/NetworkStorage/)
 
 ---
 
@@ -229,7 +234,7 @@ Qobuz Connect Android SDK，基于 Oboe 的音频输出、设备发现与播放�
 implementation("io.github.qytech:qobuz-connect:0.0.4")
 ```
 
-同一应用集成多个音频组件时，推荐配套使用 AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）、Cdrom `0.2.11`（`0.2.9`–`0.2.11`）、Qobuz Connect `0.0.4`。不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。
+同一应用集成多个音频组件时，推荐配套使用基于 Oboe 1.11 的 [AudioPlayer](docs/AudioPlayer/)、Cdrom `0.2.11`（`0.2.9`–`0.2.11`）、Qobuz Connect `0.0.4`。不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。
 
 ---
 
@@ -270,15 +275,11 @@ implementation("io.github.qytech:qymultiroom:0.0.4")
 
 ### ScreenMirror
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/screenmirror.svg)](https://central.sonatype.com/artifact/io.github.qytech/screenmirror)
-
 设备端投屏运行时 SDK（Android API 29+），提供 `MediaProjection` 授权、镜像/扩展虚拟屏、H.264 低延迟发布与归一化单指远程触摸注入。
 
-- 当前版本 `0.1.0`：初始发布，详见[接入说明](docs/ScreenMirror/)和[更新日志](docs/ScreenMirror/CHANGELOG.md)
+- 设备端投屏、客户端宽高比和触摸注入。
 
-```kotlin
-implementation("io.github.qytech:screenmirror:0.1.0")
-```
+[依赖版本与用法](docs/ScreenMirror/)
 
 ---
 
@@ -352,4 +353,4 @@ implementation("io.github.qytech:qymusicindex:0.0.1-snapshot")
 
 ---
 
-> 仓库最后更新：2026-11-16
+> 仓库最后更新：2026-11-21
