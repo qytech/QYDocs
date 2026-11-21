@@ -11,21 +11,21 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、投屏 SDK 坐标 | 2026-11-21 |
 | [AudioPlayer](docs/AudioPlayer/) | 音频播放、USB Native DSD64、HDMI ARC 输入与多声道透传 | 2026-11-21 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS、QPlay 及宿主播放前输出交接 | 2026-11-11 |
-| <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器（0.2.10 移除 `core` 依赖，新项目请使用 QYDlna） | 2026-11-11 |
+| <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器（0.2.10 移除 `core` 依赖，新项目请使用 QYDlna） | 2026-11-21 |
 | <a href="docs/Airplay/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/airplay.svg" alt="Maven Central" style="vertical-align: middle;"></a> [AirPlay（Deprecated）](docs/Airplay/) | 旧版 AirPlay 接收与会话接入，新项目推荐使用 QYAirPlay2 | 2026-09-30 |
-| <a href="docs/QYAirPlay2/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYAirPlay2](docs/QYAirPlay2/) · [Changelog](docs/QYAirPlay2/CHANGELOG.md) | AirPlay 音频接收与播放，支持多手机播放接管、歌曲信息与封面、硬件音量及输出释放回调 | 2026-11-11 |
-| <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-08-14 |
+| <a href="docs/QYAirPlay2/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyairplay2.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYAirPlay2](docs/QYAirPlay2/) · [Changelog](docs/QYAirPlay2/CHANGELOG.md) | AirPlay 音频接收与播放，支持多手机播放接管、歌曲信息与封面、硬件音量及输出释放回调 | 2026-11-21 |
+| <a href="docs/Spectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/spectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Spectrum](docs/Spectrum/) | 音频频谱与 VU 表组件，支持真实响度和峰值显示 | 2026-11-21 |
 | <a href="docs/QYSpectrum/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyspectrum.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYSpectrum](docs/QYSpectrum/) · [Changelog](docs/QYSpectrum/CHANGELOG.md) | 基于 ARM NEON SIMD 与 Rust JNI 的实时频谱与弹道 VU 表引擎（`0.0.1-snapshot` 预发布） | 2026-09-16 |
-| <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库（C++/Oboe），支持 CD 播放、DTS 能力协商与有界恢复、原子抓轨及硬件控制 | 2026-11-11 |
+| <a href="docs/Cdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/cdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Cdrom](docs/Cdrom/) · [Changelog](docs/Cdrom/CHANGELOG.md) | USB 光驱控制库（C++/Oboe），支持 CD 播放、DTS 能力协商与有界恢复、原子抓轨及硬件控制 | 2026-11-21 |
 | <a href="docs/QYCdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qycdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYCdrom](docs/QYCdrom/) · [Changelog](docs/QYCdrom/CHANGELOG.md) | 基于 Rust 与系统租约的 CD-ROM 驱动与播放 SDK（不依赖 Oboe），支持 DTS 透传回退与原子抓轨 | 2026-11-11 |
 | [NetworkStorage](docs/NetworkStorage/) | SMB/NFS 发现、连接、卸载协调和普通 Android 应用的用户态后端 | 2026-11-21 |
-| <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-11 |
-| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-16 |
+| <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-21 |
+| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-21 |
 | <a href="docs/QYMultiroom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-11 |
 | [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏、客户端宽高比和触摸注入 | 2026-11-21 |
-| <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-08-19 |
+| <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-11-21 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
-| <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持发现阶段进度回调、增量秒级复扫与流式批量持久化分发 | 2026-11-11 |
+| <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持发现阶段进度回调、增量秒级复扫与流式批量持久化分发 | 2026-11-21 |
 | <a href="docs/QYMusicIndex/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymusicindex.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYMusicIndex](docs/QYMusicIndex/) · [Changelog](docs/QYMusicIndex/CHANGELOG.md) | 基于 Rust JNI 的曲库拼音排序键、首字母分类与内存倒排搜索索引引擎（`0.0.1-snapshot` 预发布） | 2026-10-13 |
 
 ---
@@ -46,6 +46,26 @@ dependencies {
     implementation("io.github.qytech:screenmirror:0.1.1")
 }
 ```
+
+其他 15 个 SDK 通过 `mavenCentral()` 获取，具体坐标见各 SDK 接入页。版本中的小写 `-snapshot` 是公开坐标的一部分，按原样引用。
+
+| SDK | Maven Central 坐标 |
+| --- | --- |
+| [Airplay](https://qytech.github.io/QYDocs/docs/Airplay/) | `io.github.qytech:airplay:0.0.10` |
+| [AudioProbe](https://qytech.github.io/QYDocs/docs/AudioProbe/) | `io.github.qytech:qyaudioprobe:0.1.0` |
+| [Cdrom](https://qytech.github.io/QYDocs/docs/Cdrom/) | `io.github.qytech:cdrom:0.2.11` |
+| [DLNA](https://qytech.github.io/QYDocs/docs/DLNA/) | `io.github.qytech:dlna:0.2.10` |
+| [MediaScanner](https://qytech.github.io/QYDocs/docs/MediaScanner/) | `io.github.qytech:qymediascanner:0.1.1` |
+| [QYAirPlay2](https://qytech.github.io/QYDocs/docs/QYAirPlay2/) | `io.github.qytech:qyairplay2:0.1.3` |
+| [QYCdrom](https://qytech.github.io/QYDocs/docs/QYCdrom/) | `io.github.qytech:qycdrom:0.0.3` |
+| [QYDlna](https://qytech.github.io/QYDocs/docs/QYDlna/) | `io.github.qytech:qydlna:0.1.1` |
+| [QYMultiroom](https://qytech.github.io/QYDocs/docs/QYMultiroom/) | `io.github.qytech:qymultiroom:0.0.4` |
+| [QYMusicIndex](https://qytech.github.io/QYDocs/docs/QYMusicIndex/) | `io.github.qytech:qymusicindex:0.0.1-snapshot` |
+| [QYSpectrum](https://qytech.github.io/QYDocs/docs/QYSpectrum/) | `io.github.qytech:qyspectrum:0.0.1-snapshot` |
+| [Qobuz](https://qytech.github.io/QYDocs/docs/Qobuz/) | `io.github.qytech:qobuz-connect:0.0.4` |
+| [Roon](https://qytech.github.io/QYDocs/docs/Roon/) | `io.github.qytech:roon:0.1.8` |
+| [SerialPort](https://qytech.github.io/QYDocs/docs/SerialPort/) | `io.github.qytech:serialport:0.0.5` |
+| [Spectrum](https://qytech.github.io/QYDocs/docs/Spectrum/) | `io.github.qytech:spectrum:0.2.3` |
 <!-- /qydocs:dependencies -->
 
 ---
@@ -335,7 +355,7 @@ implementation("io.github.qytech:qymusicindex:0.0.1-snapshot")
 ## 技术栈
 
 - Android Framework（minSdk 29）
-- Kotlin / Java（JDK 11+）
+- Kotlin / Java。各 SDK 的字节码目标和宿主编译要求见对应接入页。
 - 音视频开发
 - QYDlna（DLNA / UPnP）/ AirPlay / QPlay / Roon / Qobuz 协议
 - Google Oboe（Native 音频输出）

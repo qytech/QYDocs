@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-Qobuz Connect `0.0.4` 使用 Oboe 1.11，与 AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）、Cdrom `0.2.11`（`0.2.9`–`0.2.11`）配套使用。不要将基于 Oboe 1.10 的 Qobuz Connect `0.0.3` 或 Cdrom `0.2.8` 与上述版本混用。
+Qobuz Connect `0.0.4` 使用 Oboe 1.11，与 AudioPlayer `1.2.12`（[QYTech Maven 仓库配置](../HiFiPlayer/index.md)）、Cdrom `0.2.11`（`0.2.9`–`0.2.11`）配套使用。不要将基于 Oboe 1.10 的 Qobuz Connect `0.0.3` 或 Cdrom `0.2.8` 与上述版本混用。
 
 ---
 
@@ -279,4 +279,3 @@ SDK 使用 Android `NsdManager` 通过 **DNS\-SD** 协议广播设备，使 Qobu
 
 **Q: 如何获取最新版本号？**
  A: 访问 [Maven Central](https://central.sonatype.com/artifact/io.github.qytech/qobuz-connect) 查询 `io.github.qytech:qobuz-connect` 的最新发布版本。
-

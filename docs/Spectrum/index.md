@@ -186,7 +186,7 @@ fun startRecord() {
             _dbLeftList.value = leftDbList
             _dbRightList.value = rightDbList
         }
-        
+
         override fun onVuDataUpdated(vuData: VuData) {
             _vuData.value = vuData
         }

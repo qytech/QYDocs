@@ -89,10 +89,10 @@ interface IDLNAMediaEventListener {
         index: Int,
         audioInfo: QPlayAudioInfo? = null
     )
-    
+
     // QPlay 控制端下发的 LRC 歌词
     fun onLyricChanged(songId: String, lyric: String)
-    
+
     fun onProgressChanged(progress: Float)
     fun onVolumeChanged(value: Float)
     fun onMuteChanged(mute: Boolean)
@@ -162,7 +162,7 @@ private val mediaEventListener = object : IDLNAMediaEventListener {
     override fun onPlayStatusChanged(playbackState: Int, isPlaying: Boolean) {
         Timber.d("onPlayStatusChanged playbackState=$playbackState isPlaying=$isPlaying")
     }
-    
+
     override fun onQPlayQueueChanged(
         queue: List<QPlayTrackMetaData>,
         trackId: Int,

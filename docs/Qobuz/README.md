@@ -21,11 +21,11 @@
 - `model`
 - `serialNumber`
 
-当前库的构建条件：
+`qobuz-connect:0.0.4` 的 AAR 接入条件如下。
 
 - `minSdk 29`
-- `compileSdk 36`
-- Java/Kotlin 11
+- 宿主使用 `compileSdk 37` 或更高版本
+- AAR 中的 JVM 字节码目标为 Java 17
 - 当前仅支持 `arm64-v8a`
 
 ## 依赖接入

@@ -192,4 +192,4 @@ val report = scanner.scanDirectoryStreaming(
 2. **批次大小推荐 (`batchSize`)**：
    - 推荐配置为 **`200 ~ 500`** 首/批（默认 300 首最佳），配合 Room 的 `@Transaction` 批量写入，可彻底杜绝频繁的小事务导致的主线程 UI 卡顿。
 3. **真机性能数据参考**：
-   - 查看在数播一体机真机上针对 4,000+ 首无损音频的完整压测报告：[扫描与入库性能基准测试报告](benchmark-report.md)。
+   - 查看在数播一体机真机上针对 4,000+ 首无损音频的完整压测报告：[扫描与入库性能基准测试报告](https://qytech.github.io/QYDocs/docs/MediaScanner/benchmark-report.html)。

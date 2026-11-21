@@ -24,7 +24,7 @@ dependencies {
 }
 ```
 
-Cdrom `0.2.11`（与 `0.2.9`、`0.2.10` 同属 Oboe `1.11.0` 系列）请与 AudioPlayer `1.2.10`（`1.2.7`–`1.2.10`）、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。若新项目采用固件租约与 Rust/FFmpeg 链路（不依赖 Oboe），请参见 [QYCdrom](../QYCdrom/)。
+Cdrom `0.2.11`（与 `0.2.9`、`0.2.10` 同属 Oboe `1.11.0` 系列）请与 AudioPlayer `1.2.12`（[QYTech Maven 仓库配置](../HiFiPlayer/index.md)）、Qobuz Connect `0.0.4` 配套使用；同一应用不要混用基于 Oboe 1.10 的 Cdrom `0.2.8` 或 Qobuz Connect `0.0.3`。若新项目采用固件租约与 Rust/FFmpeg 链路（不依赖 Oboe），请参见 [QYCdrom](../QYCdrom/)。
 
 
 
@@ -100,16 +100,16 @@ fun init() {
             // 设备插入，初始化底层资源
             cdromController.init()
         }
-        
+
         override fun onDetached() {
              // 设备拔出，释放资源
              stop()
         }
-        
+
         override fun onDriveStatusChange(status: CdromDriveStatus) {
             // 处理光驱状态：如 CDS_TRAY_OPEN (开仓), CDS_DISC_OK (就绪)
         }
-        
+
         override fun onDiscStatusChange(status: CdromDiscStatus) {
              // 处理光盘状态：如 CDS_AUDIO (CD), CDS_MIXED (混合光盘)
              if (status == CdromDiscStatus.CDS_AUDIO || status == CdromDiscStatus.CDS_MIXED) {
@@ -120,7 +120,7 @@ fun init() {
              }
         }
     })
-    
+
     // 设置播放监听
     cdPlayer.addListener(object : CdPlayerListener {
         override fun onProgress(current: Long, total: Long) {
@@ -131,7 +131,7 @@ fun init() {
         }
         // ... 其他回调
     })
-    
+
     // 首次初始化
     cdromController.init()
 }
@@ -179,7 +179,7 @@ fun seek(percent: Float) {
 fun eject() {
     // 弹出前建议先停止播放
     cdPlayer.stop()
-    
+
     // 发送弹出指令 (包含物理指令和软件指令的双重保障)
     val ret = cdromController.eject()
 }
@@ -266,7 +266,7 @@ fun release() {
     // 【重要提示】：若后台当前正在抓轨，release() 会自动保护底层硬件与抓轨任务持续运行，绝不误杀！
     cdromController.removeCdromDeviceListener()
     cdromController.release()
-    
+
     cdPlayer.removeListener(playerListener)
     // 无参 release() 兼容保留；切源或移交输出时建议等待异步释放确认
     cdPlayer.release { released ->
@@ -345,7 +345,7 @@ interface CdRomDeviceListener {
 }
 ```
 
-[0001\-report\-cdrom\-state\-event\-from\-kernel\.patch](图片和附件/0001-report-cdrom-state-event-from-kernel.patch)
+[0001\-report\-cdrom\-state\-event\-from\-kernel\.patch](https://github.com/qytech/QYDocs/blob/main/docs/Cdrom/%E5%9B%BE%E7%89%87%E5%92%8C%E9%99%84%E4%BB%B6/0001-report-cdrom-state-event-from-kernel.patch)
 
 ### v0\.2\.4 \(202260615\)
 
@@ -365,7 +365,7 @@ interface CdRomDeviceListener {
 
 ### v0\.2\.0
 
-1. 修复CDROM HeapTaskDaemon 错误 
+1. 修复CDROM HeapTaskDaemon 错误
 
 ### v0\.1\.9
 
@@ -383,7 +383,7 @@ interface CdRomDeviceListener {
 
 ### v0\.1\.7
 
-1. 添加了CDRom自动无缝播放的功能 
+1. 添加了CDRom自动无缝播放的功能
 
     ```Java
     interface CdPlayerListener {
@@ -392,12 +392,12 @@ interface CdRomDeviceListener {
         fun onError(code: Int, msg: String)
         fun onStateChanged(state: CdPlaybackState)
         fun onComplete()
-        
+
         // 新增当前轨迹回调
         fun onTrackChanged(trackIndex: Int)
     }
-    
-    
+
+
     interface CdromTrackCallback {
         fun onTrackCallback(data: ByteArray, size: Long, progress: Float)
         // 新增当前轨迹回调
@@ -468,4 +468,3 @@ interface CdRomDeviceListener {
 - \[Fixed in v0\.1\.3\] 部分情况下可能存在播放无声音输出问题 \(已通过 Oboe 替换 AudioTrack 解决\)。
 
 - \[Wait\] 针对极其老旧的 USB 光驱的兼容性测试。
-

@@ -1,11 +1,11 @@
 # ScreenMirror Android SDK
 
 [QYTech Maven 发布仓库](https://github.com/qytech/maven-releases)
-[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
 
 ScreenMirror（`io.github.qytech:screenmirror`）是设备端投屏运行时 SDK，负责 `MediaProjection` 授权、镜像或扩展虚拟屏管理、H.264 低延迟视频流发布以及远程单指触摸注入。
 
-> 当前版本：`0.1.0`（2026-08-17）。发布制品为经过 R8 混淆的 AAR，版本变化见[更新日志](CHANGELOG.md)。
+> 当前版本为 `0.1.1`，于 2026-11-21 发布到 QYTech Maven 仓库。发布制品为经过 R8 混淆的 AAR，版本变化见[更新日志](CHANGELOG.md)。
 
 ## 依赖与运行环境
 

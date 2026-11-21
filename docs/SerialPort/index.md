@@ -8,7 +8,8 @@ SerialPort 提供 Android 设备串口访问能力，供 QYTech 硬件驱动与�
 implementation("io.github.qytech:serialport:0.0.5")
 ```
 
-- 兼容要求：`minSdk = 31`、Java 17。
+- `serialport:0.0.5` 的 AAR 声明 `minSdk = 29`，JVM 字节码目标为 Java 11。
+- AAR 为 `arm64-v8a`、`armeabi-v7a`、`x86` 和 `x86_64` 提供 `libserialport.so`。
 
 ## 使用方法
 
@@ -34,6 +35,6 @@ port.release()
 
 ## 更新日志
 
-### v0.0.5（2026-08-19）
+### v0.0.5（2025-11-14）
 
-- 建立 SerialPort 独立发布文档入口。
+- [Maven Central 版本索引](https://repo.maven.apache.org/maven2/io/github/qytech/serialport/maven-metadata.xml) 收录此版本。2026-08-19 建立了独立文档入口。

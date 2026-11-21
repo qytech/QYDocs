@@ -99,11 +99,9 @@ RoonServiceManager.init(
 
 ## 验证范围与已知限制
 
-`0.1.8` 已发布至 Maven Central，见[版本发布记录](https://github.com/qytech/drivers-connect-roon/releases/tag/v0.1.8)。集成时需核对最终 APK 实际使用的 SDK 版本；以下 `0.1.5` 的历史结果不代表当前宿主已完成验收。
+`0.1.8` 已发布至 Maven Central，见[公开版本 POM](https://repo.maven.apache.org/maven2/io/github/qytech/roon/0.1.8/roon-0.1.8.pom)。集成时需核对最终 APK 实际使用的 SDK 版本；以下 `0.1.5` 的历史结果不代表当前宿主已完成验收。
 
-根据 `0.1.5` 发布验收记录，2026-11-07 的 app-cadenza Release 在 RK3576 / SPDIF / S32、44.1 kHz 环境完成 10 轮播放中网络接口断开/恢复、5 轮播放中关闭/重开 Roon，以及约 8 分 8 秒连续播放，未出现新增崩溃。恢复播放由 Roon Core 显式触发。Native CTest 4/4、Roon 46 项及播放器 280 项 JVM 测试通过。
-
-2026-11-09 发布记录确认 `0.1.5` AAR 与上述验收候选字节一致；发布当天未重新执行实机测试。上述结果来自关联项目的验收记录，不是本文档维护时重新运行的测试。
+已公开的 [0.1.5 验证范围与已知限制](https://github.com/qytech/QYDocs/blob/dee9adf433b37300663f58d8d6f28dbb0df597dc/docs/Roon/index.md#验证范围与已知限制) 可供查阅。
 
 - `0.1.5` 修复了断网后最终退出时调用失效回调导致的已知崩溃路径；不代表 RAAT SDK 内部所有生命周期缺陷均已修复。
 - 普通暂停期间，已排队的音频可能继续输出至队列排空；暂停即时静音与快速恢复需在目标设备上复验。
