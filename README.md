@@ -8,7 +8,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、投屏 SDK 坐标 | 2026-11-21 |
+| [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、投屏 SDK 坐标 | 2026-11-23 |
 | [AudioPlayer](docs/AudioPlayer/) | 音频播放、USB Native DSD64、HDMI ARC 输入与多声道透传 | 2026-11-21 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS、QPlay 及宿主播放前输出交接 | 2026-11-11 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器（0.2.10 移除 `core` 依赖，新项目请使用 QYDlna） | 2026-11-21 |
@@ -20,9 +20,9 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | <a href="docs/QYCdrom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qycdrom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYCdrom](docs/QYCdrom/) · [Changelog](docs/QYCdrom/CHANGELOG.md) | 基于 Rust 与系统租约的 CD-ROM 驱动与播放 SDK（不依赖 Oboe），支持 DTS 透传回退与原子抓轨 | 2026-11-11 |
 | [NetworkStorage](docs/NetworkStorage/) | SMB/NFS 发现、连接、卸载协调和普通 Android 应用的用户态后端 | 2026-11-21 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-21 |
-| <a href="docs/Roon/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/roon.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-21 |
-| <a href="docs/QYMultiroom/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg" alt="Maven Central" style="vertical-align: middle;"></a> [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-11 |
-| [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏、客户端宽高比和触摸注入 | 2026-11-21 |
+| [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-23 |
+| [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-23 |
+| [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏、客户端宽高比和触摸注入 | 2026-11-23 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-11-21 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
 | <a href="docs/MediaScanner/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qymediascanner.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [MediaScanner](docs/MediaScanner/) · [Changelog](docs/MediaScanner/CHANGELOG.md) | 多线程本地与外置存储媒体扫描引擎，支持发现阶段进度回调、增量秒级复扫与流式批量持久化分发 | 2026-11-21 |
@@ -43,11 +43,13 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 dependencies {
     implementation("io.github.qytech:audioplayer:1.2.12")
     implementation("io.github.qytech:networkstorage:0.1.12")
-    implementation("io.github.qytech:screenmirror:0.1.1")
+    implementation("io.github.qytech:qymultiroom:0.0.5")
+    implementation("io.github.qytech:roon:0.1.9")
+    implementation("io.github.qytech:screenmirror:0.1.2")
 }
 ```
 
-其他 15 个 SDK 通过 `mavenCentral()` 获取，具体坐标见各 SDK 接入页。版本中的小写 `-snapshot` 是公开坐标的一部分，按原样引用。
+其他 13 个 SDK 通过 `mavenCentral()` 获取，具体坐标见各 SDK 接入页。版本中的小写 `-snapshot` 是公开坐标的一部分，按原样引用。
 
 | SDK | Maven Central 坐标 |
 | --- | --- |
@@ -59,11 +61,9 @@ dependencies {
 | [QYAirPlay2](https://qytech.github.io/QYDocs/docs/QYAirPlay2/) | `io.github.qytech:qyairplay2:0.1.3` |
 | [QYCdrom](https://qytech.github.io/QYDocs/docs/QYCdrom/) | `io.github.qytech:qycdrom:0.0.3` |
 | [QYDlna](https://qytech.github.io/QYDocs/docs/QYDlna/) | `io.github.qytech:qydlna:0.1.1` |
-| [QYMultiroom](https://qytech.github.io/QYDocs/docs/QYMultiroom/) | `io.github.qytech:qymultiroom:0.0.4` |
 | [QYMusicIndex](https://qytech.github.io/QYDocs/docs/QYMusicIndex/) | `io.github.qytech:qymusicindex:0.0.1-snapshot` |
 | [QYSpectrum](https://qytech.github.io/QYDocs/docs/QYSpectrum/) | `io.github.qytech:qyspectrum:0.0.1-snapshot` |
 | [Qobuz](https://qytech.github.io/QYDocs/docs/Qobuz/) | `io.github.qytech:qobuz-connect:0.0.4` |
-| [Roon](https://qytech.github.io/QYDocs/docs/Roon/) | `io.github.qytech:roon:0.1.8` |
 | [SerialPort](https://qytech.github.io/QYDocs/docs/SerialPort/) | `io.github.qytech:serialport:0.0.5` |
 | [Spectrum](https://qytech.github.io/QYDocs/docs/Spectrum/) | `io.github.qytech:spectrum:0.2.3` |
 <!-- /qydocs:dependencies -->
@@ -260,7 +260,7 @@ implementation("io.github.qytech:qobuz-connect:0.0.4")
 
 ### Roon
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/roon.svg)](https://central.sonatype.com/artifact/io.github.qytech/roon)
+[QYTech Maven 发布仓库](https://github.com/qytech/maven-releases)
 
 Roon Raat 协议支持，提供 PCM/DSD 音频串流、MQA 核心解码、动态信号路径与双向音量同步。
 
@@ -271,24 +271,24 @@ Roon Raat 协议支持，提供 PCM/DSD 音频串流、MQA 核心解码、动态
 - ✅ 双向硬件音量联动与静音控制
 - ✅ 封面与多语言元数据实时同步
 - ✅ 网络恢复后的服务重连；恢复播放需由 Roon 端明确发起
-- 当前版本 `0.1.8`：在以太网 / Wi-Fi 的 IPv4 地址变化时重建端点，修复双网场景的时钟回复接口与源地址选择；恢复后仍需由 Roon 端明确发起播放，详见 [Roon 接入说明](docs/Roon/)。
+- 当前版本 `0.1.9`。详见[接入说明](docs/Roon/)。
 
 ```kotlin
-implementation("io.github.qytech:roon:0.1.8")
+implementation("io.github.qytech:roon:0.1.9")
 ```
 
 ---
 
 ### QYMultiroom
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg)](https://central.sonatype.com/artifact/io.github.qytech/qymultiroom)
+[QYTech Maven 发布仓库](https://github.com/qytech/maven-releases)
 
-多房间音频同步与串流 SDK（Fat-AAR，Android API 29+，`arm64-v8a`），统一打包 `runtime`、`core`、`source`、`decoder`、`media`、`server`、`client`、`control`、`feature` 等模块，提供最多 8 路固定 `48kHz / 16bit / 2ch` PCM 同步分发。
+Android 多房间音频 SDK（API 29+，`arm64-v8a`）。宿主通过 `MultiRoomFactory` 创建运行时，使用设备、控制和音源三个公开入口。
 
-- 当前版本 `0.0.4`：修复 Fat-AAR 嵌入式子模块资源命名空间重定位问题（`0.0.3` 发布设备命名与 `LocalPlayGate` 契约），详见[接入说明](docs/QYMultiroom/)和[更新日志](docs/QYMultiroom/CHANGELOG.md)
+- 当前版本 `0.0.5`。详见[接入说明](docs/QYMultiroom/)。
 
 ```kotlin
-implementation("io.github.qytech:qymultiroom:0.0.4")
+implementation("io.github.qytech:qymultiroom:0.0.5")
 ```
 
 ---
@@ -373,4 +373,4 @@ implementation("io.github.qytech:qymusicindex:0.0.1-snapshot")
 
 ---
 
-> 仓库最后更新：2026-11-21
+> 仓库最后更新：2026-11-23

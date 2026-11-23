@@ -1,86 +1,56 @@
 # QYMultiroom Android SDK
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/qymultiroom.svg)](https://central.sonatype.com/artifact/io.github.qytech/qymultiroom)
-[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](./CHANGELOG.md)
+QYMultiroom 为 Android 设备提供局域网多房间共享和同步收听。宿主可通过同一个 `MultiRoom` 实例控制本机、管理远端设备和分组，并接入自己的播放器。
 
-QYMultiroom（`io.github.qytech:qymultiroom`）为 Android 设备提供多房间音频同步、音源编排与控制端能力，将 `runtime`、`core`、`source`、`decoder`、`media`、`server`、`client`、`control`、`feature` 等模块打包为单一 Fat-AAR。
+> 当前版本为 `0.0.5`，发布于 2026-11-21。[更新日志](CHANGELOG.md) · [正式 AAR](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5.aar) · [SHA-256](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5.aar.sha256)
 
-> 当前版本：`0.0.4`（2026-11-11）。版本变化见[更新日志](CHANGELOG.md)。
+## Gradle 接入
 
-## 依赖与运行环境
+按 [HiFiPlayer SDK 接入](../HiFiPlayer/index.md) 在 `settings.gradle.kts` 添加 QYTech Maven 仓库。在设备应用的 `build.gradle.kts` 中配置：
 
 ```kotlin
+android {
+    compileSdk = 37
+    defaultConfig {
+        minSdk = 29
+        ndk { abiFilters.add("arm64-v8a") }
+    }
+    packaging.jniLibs.useLegacyPackaging = true
+}
+
 dependencies {
-    implementation("io.github.qytech:qymultiroom:0.0.4")
+    implementation("io.github.qytech:qymultiroom:0.0.5")
 }
 ```
 
-- Android API 29+，仅提供 `arm64-v8a`（包含 `libsnapserver.so`、`libsnapclient.so`、`libroomcodec.so`、`libmulti_room_decoder.so` 与 `libc++_shared.so`）。
-- 权限：库清单声明 `INTERNET`、`MODIFY_AUDIO_SETTINGS`、`RECORD_AUDIO`、`MODIFY_AUDIO_ROUTING`、`CAPTURE_AUDIO_OUTPUT`、`MEDIA_CONTENT_CONTROL`、`WAKE_LOCK`。
-- 多房间传输输出固定为 `48kHz / 16bit / 2ch` 交错 PCM，最多支持 8 路逻辑通道（`pcm-1` 至 `pcm-8`）；不支持 Native DSD、DoP 或裸 `.dsd` 文件。
-- 发布 POM 已移除内部宿主工程依赖；若宿主直接引用其公共契约中的宿主侧模块接口（如 `LocalPlayGate` 或业务存储/远程协议模块），需在宿主构建中提供对应依赖。
+同时接入 ScreenMirror 的宿主可使用已验证的 `screenmirror:0.1.2`，该版本为投屏 SDK 的混淆类分配了独立包名。[ScreenMirror 接入说明](../ScreenMirror/index.md)
 
-## 主要变更与能力（v0.0.4）
+## 创建运行时和接入播放器
 
-- **Fat-AAR 资源命名空间修复（`0.0.4`）**：在打包前将嵌入子模块的资源 `R` / `R$` 引用统一重定位到 `com.qytech.multi_room.R`，解决消费者开启 Release R8 时的缺类失败。
-- **设备命名与输出交接（`0.0.3`）**：`RoleControl` 暴露本机设备名称状态 `deviceName`、改名接口 `renameDevice` / `renameSource` 与 `LocalPlayGate`，支持多房间接收器在本地起播前释放音频输出。
-- **独立解码与设备身份**：支持本机/USB/Samba/NFS 音源以及外部 CUE、DSF/DFF（DSD64/128 转 PCM）和双声道 SACD ISO 解码；本机随机设备 UUID 保存在 `noBackupFilesDir`。
-
-## 使用方法
-
-### 1. 构建并持有 `RoleControl`
-
-在应用级 `SingletonComponent` 中通过 `RoleBuilder` 构建全局 `RoleControl` 单例（提供应用级 `CoroutineScope` 与 `IO` 调度器）：
+由设备端服务或其他应用级生命周期所有者创建并持有一个实例。宿主的本地播放器实现 `PlayerSource`，向 SDK 提供当前曲目、状态和支持的操作。普通工厂接入无需配置 Hilt 或 KSP。
 
 ```kotlin
-import com.qytech.multi_room.core.runtime.contract.RoleControl
-import com.qytech.multi_room.runtime.RoleBuilder
-import com.qytech.multi_room.runtime.data.RoleConfig
-import com.qytech.multi_room.runtime.store.DeviceIdentity
+import android.content.Context
+import com.qytech.multi_room.android.MultiRoomFactory
+import com.qytech.multi_room.api.common.RoomConfig
+import com.qytech.multi_room.api.control.MultiRoom
+import com.qytech.multi_room.api.source.PlayerSource
 
-val identity = DeviceIdentity({ context.noBackupFilesDir }, Dispatchers.IO)
+fun createRoom(context: Context, deviceName: String): MultiRoom =
+    MultiRoomFactory.create(context, RoomConfig(deviceName = deviceName))
 
-val roleControl: RoleControl = RoleBuilder(
-    context = applicationContext,
-    scope = applicationScope,
-    io = Dispatchers.IO,
-    config = {
-        val deviceId = identity.read()
-        RoleConfig(
-            hostId = deviceId,
-            hostName = deviceName,
-            clientId = deviceId,
-            clientName = Build.MODEL,
-            remoteHostId = "waiting-host",
-            remoteAddress = "127.0.0.1",
-            sourceId = "local-source",
-        )
-    },
-).build()
+suspend fun openRoom(room: MultiRoom, player: PlayerSource) {
+    room.open().getOrThrow()
+    room.sources.register(player).getOrThrow()
+    room.sources.select(player.id).getOrThrow()
+}
 ```
 
-### 2. 角色控制与释放
+- 设备端完成 `openRoom` 后，用户开启共享时调用 `room.device.startSharing()`，关闭共享时调用 `room.device.stopSharing()`。辅机可用 `room.device.leaveListening()` 退出收听。调用方应处理这些操作返回的 `Result`。
+- 独立手机控制端在前台生命周期的协程中调用 `room.control.runSession()` 保持发现和控制连接。取消协程会释放该次会话。
+- 整个设备运行时退出时调用 `room.close()` 并检查结果。省略 `RoomConfig.deviceId` 时，SDK 在应用的 `noBackupFilesDir` 保存每台设备的随机身份。制作量产镜像时，应让每台设备在首次启动时生成自己的身份。
+- 系统应用声音采集需要相应的固件签名、音频路由与采集权限。普通播放器可通过 `PlayerSource` 提供文件或 PCM。
 
-```kotlin
-// 观察运行状态与设备名称
-roleControl.state.collect { state -> /* serverOn, phase 等 */ }
-roleControl.deviceName?.collect { name -> /* 当前设备名 */ }
+## Native 组件
 
-// 启停共享音源 / 加入本机收听 / 重命名
-roleControl.setServer(true)
-roleControl.joinSource()
-roleControl.renameDevice("Living Room")
-
-// 切换至本地独占播放前，通过 localGate 协调释放多房间接收输出
-roleControl.localGate?.let { /* 按宿主播放器门控接入 */ }
-
-// 退出多房间运行时释放 Server 与 Client 资源
-roleControl.stop()
-```
-
-- 接入内置 Compose 界面时，可在 Hilt 环境中直接挂载 `com.qytech.multi_room.feature.route.MultiRoomFeature()`。
-- **系统镜像约束**：`noBackupFilesDir` 中的多房间设备身份不可打包复制到多台量产设备，否则同局域网同名设备会发生服务发现冲突。
-
-## 更新日志
-
-完整变更记录见 [更新日志](CHANGELOG.md)，返回[文档首页](../../README.md)。
+AAR 带有 ARM64 的 Snapserver、Snapclient、缓存编解码、SACD/JNI 解码器和 C++ 运行库。内置文件音源默认输出 48 kHz、16 位、双声道 PCM。各组件的许可证、对应源码、补丁和离线构建脚本随正式版本提供。[组件说明及许可证](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5-notices.zip) · [Native 对应源码](https://github.com/qytech/maven-releases/releases/download/qymultiroom-0.0.5/qymultiroom-0.0.5-native-sources.zip)

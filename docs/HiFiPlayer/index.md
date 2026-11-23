@@ -1,6 +1,6 @@
 # HiFiPlayer SDK 接入
 
-AudioPlayer、NetworkStorage 和 ScreenMirror 的下列版本已发布到 QYTech 的公开 Maven 仓库，Gradle 可以匿名下载。[发布仓库](https://github.com/qytech/maven-releases)
+AudioPlayer、NetworkStorage、QYMultiroom、Roon 和 ScreenMirror 的下列版本已发布到 QYTech 的公开 Maven 仓库，Gradle 可以匿名下载。[发布仓库](https://github.com/qytech/maven-releases)
 
 ## 配置 Gradle
 
@@ -11,6 +11,8 @@ maven("https://qytech.github.io/maven-releases/") {
     content {
         includeModule("io.github.qytech", "audioplayer")
         includeModule("io.github.qytech", "networkstorage")
+        includeModule("io.github.qytech", "qymultiroom")
+        includeModule("io.github.qytech", "roon")
         includeModule("io.github.qytech", "screenmirror")
     }
 }
@@ -23,11 +25,13 @@ maven("https://qytech.github.io/maven-releases/") {
 dependencies {
     implementation("io.github.qytech:audioplayer:1.2.12")
     implementation("io.github.qytech:networkstorage:0.1.12")
-    implementation("io.github.qytech:screenmirror:0.1.1")
+    implementation("io.github.qytech:qymultiroom:0.0.5")
+    implementation("io.github.qytech:roon:0.1.9")
+    implementation("io.github.qytech:screenmirror:0.1.2")
 }
 ```
 
-其他 15 个 SDK 通过 `mavenCentral()` 获取，具体坐标见各 SDK 接入页。版本中的小写 `-snapshot` 是公开坐标的一部分，按原样引用。
+其他 13 个 SDK 通过 `mavenCentral()` 获取，具体坐标见各 SDK 接入页。版本中的小写 `-snapshot` 是公开坐标的一部分，按原样引用。
 
 | SDK | Maven Central 坐标 |
 | --- | --- |
@@ -39,11 +43,9 @@ dependencies {
 | [QYAirPlay2](https://qytech.github.io/QYDocs/docs/QYAirPlay2/) | `io.github.qytech:qyairplay2:0.1.3` |
 | [QYCdrom](https://qytech.github.io/QYDocs/docs/QYCdrom/) | `io.github.qytech:qycdrom:0.0.3` |
 | [QYDlna](https://qytech.github.io/QYDocs/docs/QYDlna/) | `io.github.qytech:qydlna:0.1.1` |
-| [QYMultiroom](https://qytech.github.io/QYDocs/docs/QYMultiroom/) | `io.github.qytech:qymultiroom:0.0.4` |
 | [QYMusicIndex](https://qytech.github.io/QYDocs/docs/QYMusicIndex/) | `io.github.qytech:qymusicindex:0.0.1-snapshot` |
 | [QYSpectrum](https://qytech.github.io/QYDocs/docs/QYSpectrum/) | `io.github.qytech:qyspectrum:0.0.1-snapshot` |
 | [Qobuz](https://qytech.github.io/QYDocs/docs/Qobuz/) | `io.github.qytech:qobuz-connect:0.0.4` |
-| [Roon](https://qytech.github.io/QYDocs/docs/Roon/) | `io.github.qytech:roon:0.1.8` |
 | [SerialPort](https://qytech.github.io/QYDocs/docs/SerialPort/) | `io.github.qytech:serialport:0.0.5` |
 | [Spectrum](https://qytech.github.io/QYDocs/docs/Spectrum/) | `io.github.qytech:spectrum:0.2.3` |
 <!-- /qydocs:dependencies -->
@@ -52,6 +54,8 @@ dependencies {
 
 - [AudioPlayer](../AudioPlayer/index.md) 支持通过 Android USB Host 向已授权的山灵 UA4 输出双声道 Native DSD64。
 - [NetworkStorage](../NetworkStorage/index.md) 允许普通 Android 应用注册自己的 SMB/NFS 用户态后端。
+- [QYMultiroom](../QYMultiroom/index.md) 提供设备间同步收听、共享分组及播放器接入。
+- [Roon](../Roon/index.md) 提供 Roon 音频接收、分组播放和宿主音源切换接口。
 - [ScreenMirror](../ScreenMirror/index.md) 支持在扩展屏会话中指定客户端视图宽高比。
 
 ## 下载宿主 APK

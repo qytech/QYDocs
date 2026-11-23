@@ -1,13 +1,21 @@
 # Roon Android SDK
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.qytech/roon.svg)](https://central.sonatype.com/artifact/io.github.qytech/roon)
+[QYTech Maven 发布仓库](https://github.com/qytech/maven-releases)
 
-当前版本：`0.1.8`，提供 Roon 音频接收、播放控制、设备音频能力查询与宿主音源切换接口，支持以太网 / Wi-Fi 地址变化后的端点重建与时钟回复选路。
+当前版本为 `0.1.9`。本版改进内置 PCM 输出在 Roon 分组播放时的起播同步。
 
 ## 依赖与运行环境
 
 ```kotlin
-implementation("io.github.qytech:roon:0.1.8")
+// settings.gradle.kts 的 dependencyResolutionManagement.repositories 中
+maven("https://qytech.github.io/maven-releases/") {
+    content { includeModule("io.github.qytech", "roon") }
+}
+```
+
+```kotlin
+// 模块 build.gradle.kts 的 dependencies 中
+implementation("io.github.qytech:roon:0.1.9")
 ```
 
 - Android API 29+，仅提供 `arm64-v8a`；宿主需包含 SDK 的 Native 库。
@@ -99,7 +107,7 @@ RoonServiceManager.init(
 
 ## 验证范围与已知限制
 
-`0.1.8` 已发布至 Maven Central，见[公开版本 POM](https://repo.maven.apache.org/maven2/io/github/qytech/roon/0.1.8/roon-0.1.8.pom)。集成时需核对最终 APK 实际使用的 SDK 版本；以下 `0.1.5` 的历史结果不代表当前宿主已完成验收。
+集成时请核对最终 APK 实际使用的 SDK 版本。0.1.9 通过 QYTech Maven 仓库分发。[0.1.9 POM](https://qytech.github.io/maven-releases/io/github/qytech/roon/0.1.9/roon-0.1.9.pom)
 
 已公开的 [0.1.5 验证范围与已知限制](https://github.com/qytech/QYDocs/blob/dee9adf433b37300663f58d8d6f28dbb0df597dc/docs/Roon/index.md#验证范围与已知限制) 可供查阅。
 
@@ -109,6 +117,13 @@ RoonServiceManager.init(
 - 同一宿主集成多个包含 `libuv.so` 的协议 SDK 时，需以最终 APK 中实际加载的库验证发现、时钟同步及网络切换后的重新播放。
 
 ## 更新日志
+
+### v0.1.9（2026-11-23）
+
+- 内置 PCM 输出新建 AudioTrack 时预填静音，确认硬件时间戳稳定后再提供起播时钟。已在运行的音轨可继续用于同一分组的后续开流。
+- RAAT 原生工作线程复用 JNI 附着，在权限允许时提高处理 IPv4 对时请求的线程优先级。
+- 宿主状态通知在后台串行派发，避免元数据解析和 Binder 通知占用 RAAT 会话线程。宿主沿用原有 AIDL 回调和输出准备接口。
+- 已知限制：分组播放期间 Roon 独立进程仍可能异常退出，触发原因待定位。
 
 ### v0.1.8（2026-11-16）
 

@@ -2,6 +2,12 @@
 
 本文档记录 `io.github.qytech:qymultiroom` 各版本的变更内容。
 
+## v0.0.5 - 2026-11-21
+
+- 通过 QYTech GitHub Pages Maven 仓库交付单一 AAR。宿主使用 `MultiRoomFactory` 和公开的设备、控制与音源接口接入。
+- `currentPlaybackSharingGroup(serverId)` 按主机和当前音源绑定标识可加入的共享组，覆盖暂停、并发加入和邀请恢复场景。
+- 更新 ARM64 解码组件，提供与正式制品匹配的 Native 对应源码、补丁、重建脚本及校验值。[Native 对应源码](https://github.com/qytech/maven-releases/releases/download/qymultiroom-0.0.5/qymultiroom-0.0.5-native-sources.zip)
+
 ## v0.0.4 - 2026-11-11
 
 - 修复 Fat-AAR 打包时嵌入子模块字节码仍引用子模块 `R$string` 的问题，统一重定位到 `com.qytech.multi_room.R`，解除消费者 Release R8 打包失败。

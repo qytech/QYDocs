@@ -5,7 +5,7 @@
 
 ScreenMirror（`io.github.qytech:screenmirror`）是设备端投屏运行时 SDK，负责 `MediaProjection` 授权、镜像或扩展虚拟屏管理、H.264 低延迟视频流发布以及远程单指触摸注入。
 
-> 当前版本为 `0.1.1`，于 2026-11-21 发布到 QYTech Maven 仓库。发布制品为经过 R8 混淆的 AAR，版本变化见[更新日志](CHANGELOG.md)。
+> 当前版本为 `0.1.2`，于 2026-11-23 发布到 QYTech Maven 仓库。发布制品为经过 R8 混淆的 AAR，版本变化见[更新日志](CHANGELOG.md)。
 
 ## 依赖与运行环境
 
@@ -13,7 +13,7 @@ ScreenMirror（`io.github.qytech:screenmirror`）是设备端投屏运行时 SDK
 
 ```kotlin
 dependencies {
-    implementation("io.github.qytech:screenmirror:0.1.1")
+    implementation("io.github.qytech:screenmirror:0.1.2")
 }
 ```
 
