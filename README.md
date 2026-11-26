@@ -8,7 +8,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 
 | 模块 | 说明 | 最后更新 |
 |------|------|------|
-| [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、投屏 SDK 坐标 | 2026-11-23 |
+| [HiFiPlayer SDK 接入](docs/HiFiPlayer/) | 公开 Maven 仓库配置及播放、网络存储、多房间、Roon、投屏 SDK 坐标 | 2026-11-26 |
 | [AudioPlayer](docs/AudioPlayer/) | 音频播放、USB Native DSD64、HDMI ARC 输入与多声道透传 | 2026-11-21 |
 | <a href="docs/QYDlna/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qydlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [QYDlna](docs/QYDlna/) · [Changelog](docs/QYDlna/CHANGELOG.md) | Android 局域网 DLNA/UPnP 接收，支持 DMR、DMS、QPlay 及宿主播放前输出交接 | 2026-11-11 |
 | <a href="docs/DLNA/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/dlna.svg" alt="Maven Central" style="vertical-align: middle;"></a> [DLNA/QPlay（Deprecated）](docs/DLNA/) | 旧版 DLNA/QPlay 媒体渲染器（0.2.10 移除 `core` 依赖，新项目请使用 QYDlna） | 2026-11-21 |
@@ -21,7 +21,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 | [NetworkStorage](docs/NetworkStorage/) | SMB/NFS 发现、连接、卸载协调和普通 Android 应用的用户态后端 | 2026-11-21 |
 | <a href="docs/Qobuz/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qobuz-connect.svg" alt="Maven Central" style="vertical-align: middle;"></a> [Qobuz](docs/Qobuz/) · [Changelog](docs/Qobuz/CHANGELOG.md) | Qobuz Connect Android SDK | 2026-11-21 |
 | [Roon](docs/Roon/) | Roon RAAT 协议支持，提供 PCM/DSD 输出、MQA 核心解码、音源交接与双网恢复 | 2026-11-23 |
-| [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 多房间音频同步与串流 SDK（Fat-AAR），提供角色控制、独立解码与 8 路 PCM 分发 | 2026-11-23 |
+| [QYMultiroom](docs/QYMultiroom/) · [Changelog](docs/QYMultiroom/CHANGELOG.md) | 局域网多房间共享与同步收听 SDK，通过 `MultiRoomFactory` 提供设备、控制和音源入口 | 2026-11-26 |
 | [ScreenMirror](docs/ScreenMirror/) · [Changelog](docs/ScreenMirror/CHANGELOG.md) | 设备端投屏、客户端宽高比和触摸注入 | 2026-11-23 |
 | <a href="docs/SerialPort/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/serialport.svg" alt="Maven Central" style="vertical-align: middle;"></a> [SerialPort](docs/SerialPort/) | Android 串口访问与硬件设备通信 | 2026-11-21 |
 | <a href="docs/AudioProbe/"><img src="https://img.shields.io/maven-central/v/io.github.qytech/qyaudioprobe.svg" alt="Maven Central" style="vertical-align: middle;"></a> <img src="https://img.shields.io/badge/★_推荐-Recommended-success?style=flat-square" alt="推荐" style="vertical-align: middle;"> [AudioProbe](docs/AudioProbe/) · [Changelog](docs/AudioProbe/CHANGELOG.md) | 高性能音频格式嗅探与元数据提取，支持 DSD、SACD、CUE 智能分轨、HTTP Range 局部嗅探与标签乱码修复 | 2026-09-22 |
@@ -43,7 +43,7 @@ QYTech Android Framework 公共底座相关 SDK 的文档与更新日志。
 dependencies {
     implementation("io.github.qytech:audioplayer:1.2.12")
     implementation("io.github.qytech:networkstorage:0.1.12")
-    implementation("io.github.qytech:qymultiroom:0.0.5")
+    implementation("io.github.qytech:qymultiroom:0.0.6")
     implementation("io.github.qytech:roon:0.1.9")
     implementation("io.github.qytech:screenmirror:0.1.2")
 }
@@ -285,10 +285,10 @@ implementation("io.github.qytech:roon:0.1.9")
 
 Android 多房间音频 SDK（API 29+，`arm64-v8a`）。宿主通过 `MultiRoomFactory` 创建运行时，使用设备、控制和音源三个公开入口。
 
-- 当前版本 `0.0.5`。详见[接入说明](docs/QYMultiroom/)。
+- 当前版本 `0.0.6`。详见[接入说明](docs/QYMultiroom/)。
 
 ```kotlin
-implementation("io.github.qytech:qymultiroom:0.0.5")
+implementation("io.github.qytech:qymultiroom:0.0.6")
 ```
 
 ---
@@ -373,4 +373,4 @@ implementation("io.github.qytech:qymusicindex:0.0.1-snapshot")
 
 ---
 
-> 仓库最后更新：2026-11-23
+> 仓库最后更新：2026-11-26

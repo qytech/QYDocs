@@ -2,6 +2,11 @@
 
 本文档记录 `io.github.qytech:qymultiroom` 各版本的变更内容。
 
+## v0.0.6 - 2026-11-25
+
+- 修复系统预装应用（`FLAG_SYSTEM` 且未覆盖更新）启动多房间接收子进程时找不到 ICU 库的问题：检测到 `ANDROID_I18N_ROOT/lib64/libandroidicu.so` 时自动补充 `LD_LIBRARY_PATH`。
+- 同步发布 `0.0.6` 正式 AAR、组件许可证及配套 Native 对应源码包，对外接入接口不变。[Native 对应源码](https://github.com/qytech/maven-releases/releases/download/qymultiroom-0.0.6/qymultiroom-0.0.6-native-sources.zip)
+
 ## v0.0.5 - 2026-11-21
 
 - 通过 QYTech GitHub Pages Maven 仓库交付单一 AAR。宿主使用 `MultiRoomFactory` 和公开的设备、控制与音源接口接入。

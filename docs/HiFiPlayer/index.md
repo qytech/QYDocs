@@ -25,7 +25,7 @@ maven("https://qytech.github.io/maven-releases/") {
 dependencies {
     implementation("io.github.qytech:audioplayer:1.2.12")
     implementation("io.github.qytech:networkstorage:0.1.12")
-    implementation("io.github.qytech:qymultiroom:0.0.5")
+    implementation("io.github.qytech:qymultiroom:0.0.6")
     implementation("io.github.qytech:roon:0.1.9")
     implementation("io.github.qytech:screenmirror:0.1.2")
 }

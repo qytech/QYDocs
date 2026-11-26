@@ -2,7 +2,7 @@
 
 QYMultiroom 为 Android 设备提供局域网多房间共享和同步收听。宿主可通过同一个 `MultiRoom` 实例控制本机、管理远端设备和分组，并接入自己的播放器。
 
-> 当前版本为 `0.0.5`，发布于 2026-11-21。[更新日志](CHANGELOG.md) · [正式 AAR](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5.aar) · [SHA-256](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5.aar.sha256)
+> 当前版本为 `0.0.6`，发布于 2026-11-25。[更新日志](CHANGELOG.md) · [正式 AAR](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.6/qymultiroom-0.0.6.aar) · [SHA-256](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.6/qymultiroom-0.0.6.aar.sha256)
 
 ## Gradle 接入
 
@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation("io.github.qytech:qymultiroom:0.0.5")
+    implementation("io.github.qytech:qymultiroom:0.0.6")
 }
 ```
 
@@ -53,4 +53,4 @@ suspend fun openRoom(room: MultiRoom, player: PlayerSource) {
 
 ## Native 组件
 
-AAR 带有 ARM64 的 Snapserver、Snapclient、缓存编解码、SACD/JNI 解码器和 C++ 运行库。内置文件音源默认输出 48 kHz、16 位、双声道 PCM。各组件的许可证、对应源码、补丁和离线构建脚本随正式版本提供。[组件说明及许可证](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.5/qymultiroom-0.0.5-notices.zip) · [Native 对应源码](https://github.com/qytech/maven-releases/releases/download/qymultiroom-0.0.5/qymultiroom-0.0.5-native-sources.zip)
+AAR 带有 ARM64 的 Snapserver、Snapclient、缓存编解码、SACD/JNI 解码器和 C++ 运行库。内置文件音源默认输出 48 kHz、16 位、双声道 PCM。各组件的许可证、对应源码、补丁和离线构建脚本随正式版本提供。[组件说明及许可证](https://qytech.github.io/maven-releases/io/github/qytech/qymultiroom/0.0.6/qymultiroom-0.0.6-notices.zip) · [Native 对应源码](https://github.com/qytech/maven-releases/releases/download/qymultiroom-0.0.6/qymultiroom-0.0.6-native-sources.zip)
